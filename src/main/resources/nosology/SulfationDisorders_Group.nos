@@ -1,0 +1,22 @@
+name:SulfationDisordersGroup
+//Sulfation Disorders Group
+
+gold:600972 = Achondrogenesis type 1B (ACG1B)
+gold:256050 = Atelosteogenesis type 2 (AO2)
+gold:222600 = Diastrophic dysplasia (DTD)
+gold:226900 = MED, autosomal recessive type
+gold:612847 = SEMD, PAPSS2 type
+gold:143095 = Chondrodysplasia with congenital joint dislocations, CHST3 type
+gold:601776 = Ehlers–Danlos syndrome, CHST14 type ("musculo-skeletal variant")
+// DTDST = SLC26A2
+
+// 608637  moved to 143095 Spondyloepiphyseal dysplasia with congenital joint dislocations 
+// 603005 gene entry for PAPSS2, phenotype entry is 612847  Brachyolmia 4 with mild epiphyseal and metaphyseal change
+
+//[600972, 256050, 222600, 226900, 603005, 608637, 601776]
+
+//UNION(#hasGermlineMutationIn SLC26A2 | #hasGermlineMutationIn PAPSS2 | #hasGermlineMutationIn CHST3 | #hasGermlineMutationIn CHST14)
+hasGermlineMutationIn:SLC26A2
+hasGermlineMutationIn:PAPSS2
+hasGermlineMutationIn:CHST3
+hasGermlineMutationIn:CHST14

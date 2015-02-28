@@ -83,7 +83,7 @@ public class HPOUtil {
 	System.out.println("***********************************");
 	System.out.println("Results of inference being written to file skelnos-inference.txt");
 
-	Charset charset = Charset.forName("US-ASCII");
+	Charset charset = Charset.forName("UTF-8");
 	//String s = ...;
 	String fname="skelnos-inference.txt";
 	Path path = FileSystems.getDefault().getPath(".", fname);
@@ -95,6 +95,8 @@ public class HPOUtil {
 		cat.printOutput(writer);
 		writer.write("***********************************\n");
        	    }
+	    writer.flush();
+	    writer.close();
 	} catch (IOException x) {
 	    System.err.format("IOException: %s%n", x);
 	}

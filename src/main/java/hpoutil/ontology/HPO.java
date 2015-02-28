@@ -27,6 +27,12 @@ public class HPO {
 	identifyRootTerms();
     }
 
+    public String getTermName(Integer i) {
+	Term t = this.termmap.get(i);
+	if (t==null) return "?";
+	else return t.getName();
+    }
+
 
     /**
      * This method looks for the terms
@@ -63,7 +69,7 @@ public class HPO {
     /**
      * return true of t1 is an ansecetor of t2
      */
-    public boolean isAncestorOf(Integer t1, Integer t2) {
+    public boolean isAncestorOf(Integer t1, Integer t2,boolean verbose) {
 	Term term1 = this.termmap.get(t1);
 	Term term2 = this.termmap.get(t2);
 	if (term1==null) {
@@ -75,13 +81,18 @@ public class HPO {
 	     throw new IllegalArgumentException("[HPO.java ERROR] could not find term for t2=" + t2);
 	   
 	}
+	if (t1.equals(t2))
+	    return true;
 	java.util.Stack<Term> candidates = new java.util.Stack<Term>();
-	candidates.push(term1);
+	candidates.push(term2);
 	while (! candidates.empty() ) {
 	    Term t = candidates.pop();
+	    if (verbose) {
+		System.out.println("Popped term " +t.getName() + " t1=" + term1.getName());
+	    }
 	    ArrayList<Term> parents = t.getParents();
 	    for (Term p : parents) {
-		if (p.equals(t1))
+		if (p.equals(term1))
 		    return true;
 		if (p.equals(phenoRoot))
 		    continue; /* end of the ontology */

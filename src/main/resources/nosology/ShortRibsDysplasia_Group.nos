@@ -1,0 +1,22 @@
+name:ShortRibsDysplasiaGroup
+//Short Ribs Dysplasia Group
+
+gold:225500 = Chondroectodermal dysplasia (Ellis–van Creveld)
+gold:613091 = Short rib—polydactyly syndrome (SRPS) type 1/3 (Saldino-Noonan / Verma-Naumoff)
+gold:263520 = Short rib—polydactyly syndrome (SRPS) type 2 (Majewski)
+gold:269860 = Short rib—polydactyly syndrome (SRPS) type 4 (Beemer)
+gold:258860 = Oral-facial-digital syndrome type 4 (Mohr–Majewski)
+gold:208500 = Asphyxiating thoracic dysplasia (ATD; Jeune)
+gold:187760 = Thoracolaryngopelvic dysplasia (Barnes)
+
+//[225500, 263510, 263520, 269860, 258860, 208500, 187760]
+// 263510 MOVED TO 613091 Short-rib thoracic dysplasia 3 with or without polydactyly 
+
+//gold:#hasGermlineMutationIn EVC1, EVC2, DYNC2H1, IFT80, NEK1
+//hasFeature Short_Ribs (HP:0000773)
+//hasFeature Horizontal ribs (HP:0000888) AND
+
+
+hasFeature:HP_0000773
+hasFeature:HP:0000888
+

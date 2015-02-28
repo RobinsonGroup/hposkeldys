@@ -1,0 +1,10 @@
+name:Type11CollagenGroup
+//
+gold:604841=Stickler syndrome type II (STL2)
+gold:154780=Marshall syndrome
+gold:228520=Fibrochondrogenesis
+gold:215150=Otospondylomegaepiphyseal dysplasia (OSMED), recessive type / dominant type
+//
+hasGermlineMutationIn:COL11A1
+hasGermlineMutationIn:COL11A2
+

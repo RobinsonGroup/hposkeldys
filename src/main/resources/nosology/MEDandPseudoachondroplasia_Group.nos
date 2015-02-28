@@ -1,0 +1,21 @@
+name:MEDandPseudoachrondroplasiaGroup
+//Multiple Epiphyseal Dysplasia and Pseudoachrondroplasia Group
+
+gold:177170 = Pseudoachondroplasia (PSACH)
+gold:132400 = Multiple epiphyseal dysplasia (MED) type 1 (EDM1)
+gold:600204 = Multiple epiphyseal dysplasia (MED) type 2 (EDM2)
+gold:600969 = Multiple epiphyseal dysplasia (MED) type 3 (EDM3)
+gold:607078 = Multiple epiphyseal dysplasia (MED) type 5 (EDM5)
+gold:614135 = Multiple epiphyseal dysplasia (MED) type 6 (EDM6) => Wrong OMIM in the Nosology
+gold:614134 = Stickler syndrome type 4, recessive type => Wrong OMIM in the Nosology
+gold:142669 = Familial hip dysplasia (Beukes)
+gold:226960 = Multiple epiphyseal dysplasia with microcephaly and nystagmus (Lowry-Wood)
+
+
+
+//#hasGermlineMutationIn COMP, COL9A2, COL9A3, MATN3, COL9A1
+//:hasFeature irregularEpiphysis HP_0010585
+
+hasFeature:HP_0010585
+hasFeature:HP_0010656
+hasFeature:HP_0002758

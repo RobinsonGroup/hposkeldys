@@ -1,0 +1,11 @@
+name:AggrecanGroup
+//Aggrecan Group
+//
+gold:608361 = SED, Kimberley type
+gold:612813 = SEMD, Aggrecan type
+gold:165800 = Familial osteochondritis dissecans
+//[608361, 612813, 165800]
+//UNION(#hasGermlineMutationIn ACAN | #hasGermlineMutationIn AGC1)
+
+hasGermlineMutationIn:ACAN
+hasGermlineMutationIn:AGC1

@@ -1,0 +1,26 @@
+name:FilaminGroup
+//Filamin Group and Related Disorders
+
+gold:305620 = Frontometaphyseal dysplasia
+gold:309350 = Melnick-Needles syndrome
+gold:311300 = Otopalatodigital syndrome, type I
+gold:304120 = Otopalatodigital syndrome, type II
+gold:300244 = Terminal osseous dysplasia 
+gold:108720 = Atelosteogenesis, type I 
+gold:108721 = Atelosteogenesis, type III
+gold:150250 = Larsen syndrome 
+gold:272460 = Spondylocarpotarsal synostosis syndrome 
+gold:249420 = Frank-ter Haar syndrome
+gold:600330 = Serpentine fibula—polycystic kidney syndrome ==> Probable error in the nosology!
+
+//[305620, 309350, 311300, 304120, 300244, 108720, 108721, 150250, 272460, 249420, 600330]
+// 600330  MOVED TO 102500  Hajdu-Cheney syndrome -- turned out not to be filamin related
+
+//hasFeature Abnormality of the skeletal system. (HP_0000924)
+
+//UNION(#hasGermlineMutationIn FLNA | #hasGermlineMutationIn FLNB | #hasGermlineMutationIn SH3PXD2B)
+hasFeature:HP_0000924
+hasGermlineMutationIn:FLNA
+hasGermlineMutationIn:FLNB
+hasGermlineMutationIn:FLNC
+hasGermlineMutationIn:SH3PXD2B

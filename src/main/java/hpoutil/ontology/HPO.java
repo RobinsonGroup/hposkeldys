@@ -69,17 +69,14 @@ public class HPO {
     /**
      * return true of t1 is an ansecetor of t2
      */
-    public boolean isAncestorOf(Integer t1, Integer t2,boolean verbose) {
+    public boolean isAncestorOf(Integer t1, Integer t2) {
 	Term term1 = this.termmap.get(t1);
 	Term term2 = this.termmap.get(t2);
 	if (term1==null) {
-	    System.err.println("[HPO.java ERROR] could not find term for t1=" + t1);
 	    throw new IllegalArgumentException("[HPO.java ERROR] could not find term for t1=" + t1);
 	}
 	if (term2==null) {
-	    System.err.println("[HPO.java ERROR] could not find term for t2=" + t2);
-	     throw new IllegalArgumentException("[HPO.java ERROR] could not find term for t2=" + t2);
-	   
+	    throw new IllegalArgumentException("[HPO.java ERROR] could not find term for t2=" + t2);
 	}
 	if (t1.equals(t2))
 	    return true;
@@ -87,9 +84,6 @@ public class HPO {
 	candidates.push(term2);
 	while (! candidates.empty() ) {
 	    Term t = candidates.pop();
-	    if (verbose) {
-		System.out.println("Popped term " +t.getName() + " t1=" + term1.getName());
-	    }
 	    ArrayList<Term> parents = t.getParents();
 	    for (Term p : parents) {
 		if (p.equals(term1))

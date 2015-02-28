@@ -52,6 +52,7 @@ public class CategoryParser {
 	ArrayList<String> diseasegenes=new ArrayList<String>();
 	ArrayList<Integer> featurelist=new ArrayList<Integer>();
 	ArrayList<Integer> notFeaturelist=new ArrayList<Integer>();
+	ArrayList<Integer> optionallist=new ArrayList<Integer>();
 	String name=null;
 	try {
 	    BufferedReader br = new BufferedReader(new FileReader(filepath));
@@ -80,6 +81,10 @@ public class CategoryParser {
 		    String hp=line.substring(11).trim();
 		    Integer hpo=getHPcode(hp);
 		    featurelist.add(hpo);
+		} else if (line.startsWith("hasOptionalFeature:")) {
+		    String hp = line.substring(19).trim();
+		    Integer hpo=getHPcode(hp);
+		    optionallist.add(hpo);
 		}
 	    }
 	    br.close();
@@ -89,6 +94,8 @@ public class CategoryParser {
 	}
 	DiseaseCategory dc = new DiseaseCategory(name,diseasegenes,featurelist,notFeaturelist);
 	dc.addGoldStandard(goldstandard);
+	if (optionallist.size()>0)
+	    dc.setOptionalList(optionallist);
 	this.categorylist.add(dc);
 	    
     }

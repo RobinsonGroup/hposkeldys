@@ -27,6 +27,8 @@ public class DiseaseCategory {
     private ArrayList<String> diseasegenes=null;
     private ArrayList<Integer> featurelist=null;
     private ArrayList<Integer>notFeaturelist=null;
+    /** At least one of these features must be present */
+    private ArrayList<Integer> optionalFeaturelist=null;
 
     HashMap<Integer,String> goldstandard=null;
     /** Count of diseases we evaluated but found not to be members of this category */
@@ -35,6 +37,10 @@ public class DiseaseCategory {
     ArrayList<DiseaseAnnotation> goodCandidate=new ArrayList<DiseaseAnnotation>();
 
     public void addGoldStandard(HashMap<Integer,String> gs) { this.goldstandard=gs; }
+
+    public void setOptionalList(ArrayList<Integer> list) {
+	optionalFeaturelist=list;
+    }
 
     public DiseaseCategory( String name, ArrayList<String> diseasegenes,ArrayList<Integer> flist,ArrayList<Integer>notflist) {
 	this.categoryname=name;
@@ -91,6 +97,7 @@ public class DiseaseCategory {
 	}
 	out.write("NOT features: " + joinHPO(this.notFeaturelist) + "\n");
 	out.write("Required features: " + joinHPO(this.featurelist)+ "\n");
+	out.write("Optional features(>=1 must be present):" + joinHPO(this.optionalFeaturelist)+"\n");
     }
 
 
@@ -133,9 +140,10 @@ public class DiseaseCategory {
 	if (newprediction.size()==0) {
 	    out.write("No new predictions\n");
 	} else {
-	    out.write("New predictions:\n");
+	    out.write(String.format("New predictions (n=%d):\n",newprediction.size()));
+	    int i=0;
 	    for (String s: newprediction) {
-		out.write("\t"+s+"\n");
+		out.write("\t" + (++i) + ": " +s+"\n");
 	    }
 	}
 
@@ -153,16 +161,12 @@ public class DiseaseCategory {
 	    boolean ok = evaluateCandidateDisease(d);
 	    if (ok) {
 		goodCandidate.add(d);
-		System.out.println("Found candidate " + d);
 	    }
 	}
     }
 
 
     public boolean evaluateCandidateDisease(DiseaseAnnotation disease) {
-	boolean verbose = false;
-	if (disease.MIMid().equals(156530))
-	    verbose=true;
 	if (this.diseasegenes != null && this.diseasegenes.size()>0) {
 	    boolean match=false; // at least one gene must match
 	    for (String symbol:this.diseasegenes) {
@@ -182,7 +186,7 @@ public class DiseaseCategory {
 	    ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
 	     for (Integer pos:positiveannotations) {
 		 try{
-		     if (DiseaseCategory.hpo.isAncestorOf(not,pos,verbose)){
+		     if (DiseaseCategory.hpo.isAncestorOf(not,pos)){
 			 notMemberCount++;
 			 return false;
 		     }
@@ -201,35 +205,38 @@ public class DiseaseCategory {
 	}
 	int n_found=0;
 	for (Integer yes: this.featurelist) {
-	    if (verbose) {
-		String name = this.hpo.getTermName(yes);
-		System.out.println("featurelist:"+yes + ":" + name);
-	    }
 	    ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
-	     for (Integer pos:positiveannotations) {
-		 if (verbose) {
-		     String name = this.hpo.getTermName(pos);
-		     System.out.println("\t Test annot:"+pos + ":" + name);
-
-		 }
+	    for (Integer pos:positiveannotations) {
 		 try{
-		     if (DiseaseCategory.hpo.isAncestorOf(yes,pos,verbose)){
-			 if (verbose) System.out.println("\tIS ANC");
-			n_found++;
+		     if (DiseaseCategory.hpo.isAncestorOf(yes,pos)){
+			 n_found++;
 			break;
-		     } else {
-			 if (verbose) System.out.println("\tNOT ANC");
-		     }
+		     } 
 		 } catch (IllegalArgumentException e) {
 		     log.error(String.format("Could not find HP:%07d for disease %s",pos,disease.getDiseaseName()));
 		     continue;
 		 }
 	     }
 	}
-	if (n_found==this.featurelist.size())
-	    return true;
-	else
+	if (n_found<this.featurelist.size())
 	    return false;
+	if (this.optionalFeaturelist==null || this.optionalFeaturelist.size()==0)
+	    return true;
+	// If we get here, then just one of the optional features must be present
+	for (Integer optf : this.optionalFeaturelist) {
+	    ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
+	    for (Integer pos:positiveannotations) {
+		 try{
+		     if (DiseaseCategory.hpo.isAncestorOf(optf,pos)){
+			 return true;
+		     } 
+		 } catch (IllegalArgumentException e) {
+		     log.error(String.format("Could not find HP:%07d for disease %s",pos,disease.getDiseaseName()));
+		     continue;
+		 }
+	     }
+	}
+	return false; // we did not find an optional annotation.
 
     }
     

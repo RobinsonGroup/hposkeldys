@@ -129,7 +129,6 @@ public class HPOUtil {
 		}
 		DiseaseAnnotation da = this.diseasemap.get(mimID);
 		if (da==null) {
-		    System.err.println("Error: could not retrieve disease for mimID: \"" + mimID + "\"");
 		    log.error("Could not retrieve disease for mimID: \"" + mimID + "\"");
 		    continue;
 		}

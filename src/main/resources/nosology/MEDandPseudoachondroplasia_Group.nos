@@ -14,8 +14,11 @@ gold:226960 = Multiple epiphyseal dysplasia with microcephaly and nystagmus (Low
 
 
 //#hasGermlineMutationIn COMP, COL9A2, COL9A3, MATN3, COL9A1
-//:hasFeature irregularEpiphysis HP_0010585
+//:hasFeature irregularEpiphysis HP:0010582
+// hasFeature HP:0010585 small epiphysis
+// HP:0003071 flattened epiphyses
 
-hasFeature:HP_0010585
-hasFeature:HP_0010656
-hasFeature:HP_0002758
+
+hasFeature:HP_0010582
+hasOptionalFeature:HP_0010585
+hasOptionalFeature:HP_0003071

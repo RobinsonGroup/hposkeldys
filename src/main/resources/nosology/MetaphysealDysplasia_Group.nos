@@ -1,0 +1,29 @@
+name:MetaphysealDysplasiaGroup
+Metaphyseal dysplasias Group
+
+gold:156500 = Metaphyseal dysplasia, Schmid type (MCS)
+gold:250250 = Cartilage-hair hypoplasia (CHH; metaphyseal dysplasia, McKusick type)
+gold:156400 = Metaphyseal dysplasia, Jansen type
+gold:600002 = Eiken dysplasia
+gold:260400 = Metaphyseal dysplasia with pancreatic insufficiency and cyclic neutropenia (Shwachman–Bodian–Diamond syndrome, SBDS)
+gold:602111 = Metaphyseal anadysplasia type 1
+gold:613073 = Metaphyseal anadysplasia type 2
+gold:250400 = Metaphyseal dysplasia, Spahr type
+gold:250215 = Metaphyseal acroscyphodysplasia
+gold:137360 = Genochondromatosis (type 1 / type 2)
+
+
+
+// #hasGermlineMutationIn COL10A1, RMRP, PTHR1, SBDS, MMP13, MMP9
+// hasFeature Abnormality of the metaphyses HP_0000944  Abnormal metaphysis
+// nothas feature Abnormality of bone mineral density  HP:0004348
+
+// #hasFeature HP_0010585
+// #hasFeature HP_0000924
+// #hasFeature HP_0004322
+// #hasFeature HP_0001288
+// #hasFeature HP_0000234
+
+
+hasFeature:HP_0000944
+notHasFeature:HP:0004348

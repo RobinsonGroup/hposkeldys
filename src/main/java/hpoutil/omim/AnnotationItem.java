@@ -38,6 +38,12 @@ public class AnnotationItem {
     public boolean is_childhood() {
 	return age_class == CHILDHOOD;
     }
+
+
+    public Integer getHPOid() { return this.hpo_id;}
+
+
+    public boolean is_negated() { return this.is_negated; }
     
     public boolean is_adult() {
 	return age_class == ADULT;
@@ -69,14 +75,15 @@ public class AnnotationItem {
      * @return the corresponding Integer value (e.g., 1234)
      * @throws IllegalArgumentException for invalid HPO string
      */
-    public Integer parseHpoID(String s) {
+    public Integer parseHpoID(String hpid) {
+	String s=hpid;
 	if (s.startsWith("HP:"))
 	    s=s.substring(3).trim();
 	else {
-	    throw new IllegalArgumentException("Malformed HP id:"+s);
+	    throw new IllegalArgumentException("Malformed HP id: \""+hpid + "\"");
 	}
 	if (s.length()!=7) {
-	    throw new IllegalArgumentException("Malformed HP id:"+s+ " (length=" + s.length() + ")");
+	    throw new IllegalArgumentException("Malformed HP id: \""+hpid+ "\" (length=" + s.length() + ")");
 	}
 	try {
 	    Integer ii = Integer.parseInt(s);

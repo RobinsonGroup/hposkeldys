@@ -57,8 +57,42 @@ public class HPO {
 	    this.inheritanceRoot=pheno;
 	}
 	System.err.println("[INFO] Created HPO Ontology successfully");
-
     }
+
+
+    /**
+     * return true of t1 is an ansecetor of t2
+     */
+    public boolean isAncestorOf(Integer t1, Integer t2) {
+	Term term1 = this.termmap.get(t1);
+	Term term2 = this.termmap.get(t2);
+	if (term1==null) {
+	    System.err.println("[HPO.java ERROR] could not find term for t1=" + t1);
+	    throw new IllegalArgumentException("[HPO.java ERROR] could not find term for t1=" + t1);
+	}
+	if (term2==null) {
+	    System.err.println("[HPO.java ERROR] could not find term for t2=" + t2);
+	     throw new IllegalArgumentException("[HPO.java ERROR] could not find term for t2=" + t2);
+	   
+	}
+	java.util.Stack<Term> candidates = new java.util.Stack<Term>();
+	candidates.push(term1);
+	while (! candidates.empty() ) {
+	    Term t = candidates.pop();
+	    ArrayList<Term> parents = t.getParents();
+	    for (Term p : parents) {
+		if (p.equals(t1))
+		    return true;
+		if (p.equals(phenoRoot))
+		    continue; /* end of the ontology */
+		candidates.push(p);
+	    }
+	}
+	return false;
+    }
+
+
+
 
 
     private void calculateIsaAncestry(ArrayList<Term> tlist){

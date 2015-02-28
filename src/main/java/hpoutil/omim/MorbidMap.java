@@ -12,8 +12,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-//import de.charite.hpo.hpo2owl.util.Identifiers;
-
 /**
  * A container for morbid map to get gene identifiers for a given MIM numbers.
  * 

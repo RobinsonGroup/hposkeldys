@@ -30,7 +30,7 @@ public class Term {
 	//System.out.println(toString());
     }
 
-
+    public boolean equals(Term other) { return this.id.equals(other.id); }
 
     public Integer getID() { return this.id; }
 
@@ -45,6 +45,10 @@ public class Term {
     public void addChildReference(Term child) {
 	this.childList.add(child);
     }
+
+    public ArrayList<Term> getParents() { return this.parentList;}
+
+    public ArrayList<Term> getChildren() { return this.childList;}
 
 
     private String IdToString(Integer hpoid) {

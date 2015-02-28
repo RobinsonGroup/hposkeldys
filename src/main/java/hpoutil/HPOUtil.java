@@ -10,25 +10,38 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.cli.Parser;
 
+import org.apache.log4j.Logger;
+
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.FileSystems;
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 import hpoutil.io.*;
 import hpoutil.ontology.*;
 import hpoutil.omim.*;
+import hpoutil.nosology.*;
 
 
 public class HPOUtil {
+
+    private static Logger log = Logger.getLogger(HPOUtil.class.getName());
 
     private String pathToHpoOBOFile=null;
     private String pathToMorbidMap=null;
     private String pathToHPOAnnot=null;
     /** Key: a MIM ID, value: list of OMIM diseases */
     private HashMap<Integer,List<OMIMDisease> > omimmap=null;
-
     private HashMap<Integer,DiseaseAnnotation> diseasemap=null;
+    private ArrayList<DiseaseCategory> categorylist=null;
+
+    private ArrayList<DiseaseCategory> category_list=null;
 
     /** A representation of the HPO Ontology */
     private HPO hpo=null;
@@ -38,15 +51,55 @@ public class HPOUtil {
 	hpoutil.parseHPOFile();
 	hpoutil.parseMorbidMap();
 	hpoutil.parseHPOAnnotationFiles();
+	hpoutil.parseCategoryFiles();
+	hpoutil.outputResults();
     }
-
-
-
 
     public HPOUtil(String args[]) {
-	parseCommandLineArguments(args);
-	
+	parseCommandLineArguments(args);	
     }
+
+    /**
+     * Read the category definitions files that are in src/main/resources
+     * Note the path is hard.-coded.
+     */
+    public void parseCategoryFiles() {
+	if (this.hpo==null) {
+	    System.err.println("HPOUtil.java: ERROR: Cannot inference with null hpo");
+	    System.exit(1);
+	}
+	DiseaseCategory.setHPO(this.hpo);
+	CategoryParser parser = new CategoryParser();
+	this.categorylist=parser.getDiseaseCategoryList();
+	for (DiseaseCategory cat:categorylist) {
+	    System.out.println("Testing membership in category: " + cat.getName());
+	    cat.findMembers(this.diseasemap);
+
+	}
+    }
+
+
+    public void outputResults() {
+	System.out.println("***********************************");
+	System.out.println("Results of inference being written to file skelnos-inference.txt");
+
+	Charset charset = Charset.forName("US-ASCII");
+	//String s = ...;
+	String fname="skelnos-inference.txt";
+	Path path = FileSystems.getDefault().getPath(".", fname);
+	try {
+	    BufferedWriter writer = Files.newBufferedWriter(path, charset);
+	    //writer.write(s, 0, s.length());
+	    for (DiseaseCategory cat:this.categorylist) {
+		//System.out.println("Testing membership in category: " + cat.getName());
+		cat.printOutput(writer);
+		writer.write("***********************************\n");
+       	    }
+	} catch (IOException x) {
+	    System.err.format("IOException: %s%n", x);
+	}
+    }
+
 
 
     public void parseMorbidMap() {
@@ -73,11 +126,15 @@ public class HPOUtil {
 		    continue; // Not using somatic mutations for the skel nos
 		}
 		DiseaseAnnotation da = this.diseasemap.get(mimID);
+		if (da==null) {
+		    System.err.println("Error: could not retrieve disease for mimID: \"" + mimID + "\"");
+		    log.error("Could not retrieve disease for mimID: \"" + mimID + "\"");
+		    continue;
+		}
 		ArrayList<String> genelist = disease.getGenes(); 
 		da.addGeneList(genelist);
 	    }
 	}
-	//for (String
     }
 
 

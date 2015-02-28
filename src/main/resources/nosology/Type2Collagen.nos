@@ -1,0 +1,13 @@
+name:Type2CollagenGroup
+//
+gold:200610=Achondrogenesis type 2 (ACG2; Langer–Saldino) & Hypochondrogenesis
+gold:151210=Platyspondylic dysplasia, Torrance type
+gold:183900=Spondyloepiphyseal dysplasia congenita (SEDC)
+gold:184250=Spondyloepimetaphyseal dysplasia (SEMD) Strudwick type
+gold:156550=Kniest dysplasia
+gold:609162=SED with metatarsal shortening (formerly Czech dysplasia)
+gold:108300=Stickler syndrome type 1
+gold:271700=Spondyloperipheral dysplasia
+//
+hasGermlineMutationIn:COL2A1
+

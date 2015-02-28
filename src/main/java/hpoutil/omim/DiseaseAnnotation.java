@@ -56,8 +56,29 @@ public class DiseaseAnnotation {
 	this.parseDiseaseFile(filename);
     }
 
+    public String toString() {
+	return String.format("MIM:%06d %s", this.diseaseId,this.diseaseName);
+    }
+
+
+    /**
+     * Returns true if there is a matching disease gene for the
+     * argument sym.
+     */
+    public boolean hasDiseaseGene(String sym) {
+	if (this.diseaseGenes==null)
+	    return false;
+	for (String gene:this.diseaseGenes)
+	    if (gene.equals(sym))
+		return true;
+	return false;
+
+    }
+
 
     public void addGeneList(ArrayList<String> lst) {
+	if (this.diseaseGenes==null) 
+	    this.diseaseGenes=new ArrayList<String>();
 	this.diseaseGenes.addAll(lst);
     }
 
@@ -111,7 +132,26 @@ public class DiseaseAnnotation {
 
     public Integer MIMid() {
 	return this.diseaseId;
+    }
 
+
+    public ArrayList<Integer> getPositiveAnnotations() {
+	ArrayList<Integer> lst = new ArrayList<Integer>();
+	for (AnnotationItem item : this.annotationItems) {
+	    if (item.is_negated())
+		continue;
+	    lst.add(item.getHPOid());
+	}
+	return lst;
+    }
+
+     public ArrayList<Integer> getNegativeAnnotations() {
+	ArrayList<Integer> lst = new ArrayList<Integer>();
+	for (AnnotationItem item : this.annotationItems) {
+	    if (item.is_negated())
+		lst.add(item.getHPOid());
+	}
+	return lst;
     }
 
 
@@ -156,9 +196,17 @@ public class DiseaseAnnotation {
 		    negative = true;
 		}
 		String hpo = segments[headerMap.get(COL_HPO)];
-	
-	    	
-		AnnotationItem item = new AnnotationItem(hpo, negative);
+		AnnotationItem item=null;
+	    	try {
+		    item = new AnnotationItem(hpo, negative);
+		} catch(IllegalArgumentException e) {
+		    System.err.println("[DiseaseAnnotation.java ERROR]:" + e.getMessage());
+		    System.err.println("Affected line is "+ line);
+		    //System.exit(1);
+		    continue;
+		}
+
+
 		String age = segments[headerMap.get(COL_AO)];
 		if (!age.isEmpty() ) {
 		    if (age.equalsIgnoreCase("Congenital onset")) {

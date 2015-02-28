@@ -54,7 +54,7 @@ public class HPOAnnotationFileParser {
 	    File[] files = folder.listFiles();
 	    for (File file : files) {
 		if (file.isFile()) {
-		    if (file.getName().startsWith("OMIM")) {
+		    if (file.getName().startsWith("OMIM") && ! file.getName().endsWith("~")) {
 			paths.add(file.getAbsolutePath());
 		    }
 		}

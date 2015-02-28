@@ -53,6 +53,14 @@ public class DiseaseCategory {
 	DiseaseCategory.hpo=hpo;
     }
 
+    public ArrayList<Integer> getMemberList() {
+	ArrayList<Integer> l = new ArrayList<Integer>();
+	for (DiseaseAnnotation da:this.goodCandidate) {
+	    Integer id = da.MIMid();
+	    l.add(id);
+	}
+	return l;
+    }
 
 
     private String join(String conn, ArrayList<String> lst) {
@@ -69,13 +77,13 @@ public class DiseaseCategory {
 	    return "No constraint";
 	else if (lst.size()==1) {
 	    Integer id = lst.get(0);
-	    String name = this.hpo.getTermName(id);
+	    String name = DiseaseCategory.hpo.getTermName(id);
 	    return String.format("HP:%07d: %s",id,name); 
 	} else {
 	    StringBuilder sb = new StringBuilder();
 	    boolean notfirst=false;
 	    for (Integer id : lst) {
-		String name = this.hpo.getTermName(id);
+		String name = DiseaseCategory.hpo.getTermName(id);
 		String s =String.format("HP:%07d: %s",id,name); 
 		if (notfirst) sb.append("; ");
 		sb.append(s);

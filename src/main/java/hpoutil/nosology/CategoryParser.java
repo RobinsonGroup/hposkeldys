@@ -17,7 +17,7 @@ public class CategoryParser {
     public ArrayList<DiseaseCategory> getDiseaseCategoryList() { return this.categorylist; }
 
     public CategoryParser() {
-	ArrayList<String> paths=getFilePaths();
+	ArrayList<String> paths=getOrderedFilePaths();
 
 	this.categorylist = new ArrayList<DiseaseCategory> ();
 	for (String p : paths) {   
@@ -26,6 +26,32 @@ public class CategoryParser {
     }
 
 
+
+    private ArrayList<String> getOrderedFilePaths() {
+	String dir="src/main/resources/nosology";
+	String f[] = {
+	    "FGFR3.nos", /* #1 */
+	    "Type2Collagen.nos", /* #2 */
+	    "Type11Collagen_Group.nos", /* #3 */
+	    "SulfationDisorders_Group.nos", /* #4 */
+	    "Perlecan_Group.nos", /* #5 */
+	    "Aggrecan_Group.nos", /* #6 */
+	    "Filamin_Group.nos", /* #7 */
+	    "TRPV4_Group.nos",  /* #8 */
+	    "ShortRibsDysplasia_Group.nos", /* #9 */
+	    "MEDandPseudoachondroplasia_Group.nos", /* #10 */
+	    // Starting here we need to chage the order to make things more specific! */
+	    "MetaphysealDysplasia_Group.nos", /* #11 */
+	    "SpondyloEpiMetaphysealDysplasia_Group.nos", /* 13 */
+
+	};
+	ArrayList<String> ret = new ArrayList<String>();
+	for (String fname:f) {
+	    String path = String.format("%s/%s",dir,fname);
+	    ret.add(path);
+	}
+	return ret;
+    }
 
 
 

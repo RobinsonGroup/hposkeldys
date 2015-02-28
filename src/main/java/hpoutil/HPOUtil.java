@@ -74,7 +74,10 @@ public class HPOUtil {
 	for (DiseaseCategory cat:categorylist) {
 	    System.out.println("Testing membership in category: " + cat.getName());
 	    cat.findMembers(this.diseasemap);
-
+	    ArrayList<Integer> lst = cat.getMemberList();
+	    for (Integer id:lst) {
+		this.diseasemap.remove(id); /* Once assigned, we can remove the disease! */
+	    }
 	}
     }
 

@@ -41,8 +41,11 @@ public class CategoryParser {
 	    "ShortRibsDysplasia_Group.nos", /* #9 */
 	    "MEDandPseudoachondroplasia_Group.nos", /* #10 */
 	    // Starting here we need to chage the order to make things more specific! */
+	    "SevereSpondylodysplasticGroup.nos", /* 14 */
 	    "MetaphysealDysplasia_Group.nos", /* #11 */
 	    "SpondyloEpiMetaphysealDysplasia_Group.nos", /* 13 */
+	    "AcromesomelicDysplasiaGroup.nos", /* #16 */
+	    "AcromelicDysplasiaGroup.nos", /* #15 */
 
 	};
 	ArrayList<String> ret = new ArrayList<String>();

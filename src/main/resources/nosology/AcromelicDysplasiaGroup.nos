@@ -1,0 +1,39 @@
+name:AcromelicDysplasiaGroup
+//Acromelic Dysplasia Group
+//Acromelia: A form of dwarfism in which shortening is most evident in the most distal segment of the limbs
+//Acromelia is the relative shortening of the bones of the hand and foot
+//190350 Short metacarpals 
+//190351: Short hands;Severe brachydactyly;Short metacarpals;Short phalanges 
+//150230: ?? acromelia -- did not find any feature
+//607778 brachydactyly; Short middle and distal phalanges; Short hands 
+//218330 Brachydactyly;Short, broad distal phalanges 
+//613610 Rhizomelic limb shortening;Brachydactyly
+//231050 Short hands; Short metacarpals with rounded proximal ends 
+//102370 Short hands;Short, stubby metacarpals;Short, stubby phalanges
+//101800: Short, broad hands;Short metacarpals;Short phalanges
+//105835: ?? doesnotseem to match
+//266920: Short fingers 
+
+gold:190350 = Trichorhinophalangeal dysplasia type 1
+gold:190351 = Trichorhinophalangeal dysplasia type 3
+gold:150230 = Trichorhinophalangeal dysplasia type 2 (Langer–Giedion)
+gold:607778 = Acrocapitofemoral dysplasia
+gold:218330 =  Cranioectodermal dysplasia (Levin–Sensenbrenner) type 1
+gold:613610 = Cranioectodermal dysplasia (Levin–Sensenbrenner) type 2
+gold:231050 = Geleophysic dysplasia
+gold:102370 = Acromicric dysplasia
+gold:101800 = Acrodysostosis
+gold:105835 = Angel-shaped phalango-epiphyseal dysplasia (ASPED)
+gold:266920 = Saldino–Mainzer dysplasia
+
+//[190350, 190351, 150230, 607778, 218330, 613610, 231050, 102370, 101800, 105835, 266920]
+
+// PETER
+// hasOptionalFeatures HP:0010049 (Short metacarpal), HP:0004279(Short palm)
+// HP:0005927 Aplasia/hypoplasia involving bones of the hand
+
+hasFeature:HP:0005927
+hasOptionalFeature:HP:0010049
+hasOptionalFeature:HP:0004279
+
+

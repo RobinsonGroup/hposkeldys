@@ -175,6 +175,10 @@ public class DiseaseCategory {
 
 
     public boolean evaluateCandidateDisease(DiseaseAnnotation disease) {
+	boolean verbose=false;
+	if (disease.MIMid().equals(200600))
+	    verbose=true;
+
 	if (this.diseasegenes != null && this.diseasegenes.size()>0) {
 	    boolean match=false; // at least one gene must match
 	    for (String symbol:this.diseasegenes) {
@@ -213,11 +217,19 @@ public class DiseaseCategory {
 	}
 	int n_found=0;
 	for (Integer yes: this.featurelist) {
+	    if (verbose) {
+		System.out.println(String.format("-required- HP:%07d - %s",yes,DiseaseCategory.hpo.getTermName(yes)));
+	    }
 	    ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
 	    for (Integer pos:positiveannotations) {
+		if (verbose) {
+		    System.out.println(String.format("-annot-HP:%07d - %s",pos,DiseaseCategory.hpo.getTermName(pos)));
+		}
 		 try{
 		     if (DiseaseCategory.hpo.isAncestorOf(yes,pos)){
 			 n_found++;
+			 if (verbose)
+			     System.out.println("FOUND:" + pos);
 			break;
 		     } 
 		 } catch (IllegalArgumentException e) {

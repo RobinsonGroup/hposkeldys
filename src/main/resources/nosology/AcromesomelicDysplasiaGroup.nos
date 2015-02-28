@@ -1,0 +1,24 @@
+name:AcromesomelicDysplasiaGroup
+//Acromesomelic Dysplasia Group
+//Mesomelia describes the shortening of the bones of the forearms and lower legs relative to the upper parts of those limbs. Acromelia is the shortening of the bones of the hands and feet. 
+
+gold:602875 = Acromesomelic dysplasia type Maroteaux (AMDM)
+gold:200700 = Grebe dysplasia
+gold:228900 = Fibular hypoplasia and complex brachydactyly (Du Pan)
+gold:609441 = Acromesomelic dysplasia with genital anomalies
+gold:112910 = Acromesomelic dysplasia, Osebold-Remondini type
+
+//[602875, 200700, 228900, 609441, 112910]
+
+// #hasGermlineMutationIn NPR2, GDF5, BMPR1B
+// Short finger/brachdactyly Short digit (HP:0011927)
+// short mid limb, Hypoplasia of the ulna (HP:0003022) or Hypoplasia of the radius (HP:0002984) or Fibular hypoplasia (HP:0003038) - (ulna/radius/fibula(tibia)
+// Maybe need short stature?
+
+//UNION(INTERSECTION(#hasFeature HP_0004322 | #hasFeature HP_0011927 | #hasFeature HP_0009803 | #hasFeature HP_0006501) | 
+//INTERSECTION(#hasFeature HP_0004322 | #hasFeature HP_0011927 | #hasFeature ////HP_0009803 | #hasFeature HP_0002991))
+// // HP:0005927 Aplasia/hypoplasia involving bones of the hand
+
+
+hasFeature:HP:0006503
+hasFeature:HP:0005927

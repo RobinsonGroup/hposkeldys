@@ -1,0 +1,28 @@
+name:SevereSpondylodysplasticGroup
+//Severe Spondylodysplastic Group
+
+gold:200600 = Achondrogenesis type 1A (ACG1A)
+gold2:69250 = Schneckenbecken dysplasia
+gold:250220 = Spondylometaphyseal dysplasia, Sedaghatian type
+gold:258480 = Opsismodysplasia
+
+//[200600, 269250, 250220, 258480]
+
+// #hasGermlineMutationIn TRIP11, SLC35D1, SBDS
+// hasFeature Short stature (HP:0004322)
+// hasFeature hasFeature Rhizomelia (HP:0000926)
+// HP:0004606  Unossified vertebral bodies
+// HP:0003498 Disproportionate Short stature
+// HP:0003300 ovoid vertebral bodies
+// HP:0000926 platyspondyly
+
+// Definition-- disproportionate short stature (HP:0003498)
+// and one or more of Unossified vertebral bodies(HP:0004606), ovoid vertebral bodies(HP:0003300), platyspondyly(HP:0000926)
+// TRIED:Doesnt have hasFeature Abnormality of the epiphyses - HP_0005930 notHasFeature:HP_0005930
+
+
+hasFeature:HP:0003498
+hasOptionalFeature:HP:0004606
+hasOptionalFeature:HP:0003300
+hasOptionalFeature:HP:0000926
+

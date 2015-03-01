@@ -1,0 +1,35 @@
+name:IncreasedBoneDensityWithoutModificationOfBoneShapeGroup
+//Increased Bone Density (without modification of bone shape) Group
+
+gold:259700 = Osteopetrosis, severe neonatal or infantile forms (OPTB1)
+gold:611490 = Osteopetrosis, severe neonatal or infantile forms (OPTB4)
+gold:259720 = Osteopetrosis, infantile form, with nervous system involvement (OPTB5)
+gold:259710 = Osteopetrosis, intermediate form, osteoclast-poor (OPTB2)
+gold:612302 = Osteopetrosis, infantile form, osteoclast-poor with immunoglobulin deficiency (OPTB7)
+gold:611497 = Osteopetrosis, intermediate form (OPTB6)
+gold:259710 = Osteopetrosis, intermediate form (OPTA2)
+gold:259730 = Osteopetrosis with renal tubular acidosis (OPTB3)
+gold:607634 = Osteopetrosis, late-onset form type 1 (OPTA1)
+gold:166600 = Osteopetrosis, late-onset form type 2 (OPTA2)
+gold:300301 = Osteopetrosis with ectodermal dysplasia and immune defect (OLEDAID)
+gold:612840 = Osteopetrosis, moderate form with defective leucocyte adhesion (LAD3)
+gold:265800 = Pyknodysostosis
+gold:155950 = Osteopoikilosis & Melorheostosis with osteopoikilosis
+gold:300373 = Osteopathia striata with cranial sclerosis (OSCS)
+gold:224300 = Dysosteosclerosis
+gold:166450 = Osteomesopyknosis
+gold:600329 = Osteopetrosis with infantile neuroaxonal dysplasia
+
+//[259700, 611490, 259720, 259710, 612302, 611497, 259710, 
+//259730, 607634, 166600, 300301, 612840, 
+//265800, 155950, 300373, 224300, 166450, 600329]
+
+// #hasGermlineMutationIn TCIRG1, CLCN7, OSTM1, RANKL, TNFSF11, RANK, 
+//TNFRSF11A, PLEKHM1, CA2, LRP5, IKBKG, NEMO, FERMT3, KIND3, RASGRP2, CTSK, LEMD3, WTX
+// hasFeature  HPO_increased_bone_mineral_density = "HP_0011001"
+// add NOT Abnormal diaphysis morphology HP_0000940
+// NOT Abnormality of the metaphyses HP_0000944
+
+hasFeature:HP_0011001
+hasNotFeature:HP_0000940
+hasNotFeature:HP_0000944

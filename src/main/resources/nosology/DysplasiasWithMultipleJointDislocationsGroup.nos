@@ -1,0 +1,22 @@
+name:DysplasiasWithMultipleJointDislocationsGroup
+//Dysplasias with Multiple Joint Dislocations Group
+
+gold:251450 = Desbuquois dysplasia (with accessory ossification center in digit 2) & Desbuquois dysplasia with short metacarpals and elongated phalanges (Kim type)
+gold:264180 = Pseudodiastrophic dysplasia 
+
+//[251450, 264180]
+
+// #hasGermlineMutationIn CANT1
+// HPO_joint_dislocation = "HP_0001373";
+// HPO_short_stature = "HP_0004322";
+
+// ANDREAS
+// Joint dislocation (HP:0001373)
+// Multiple joint dislocation (HP:0012095)
+// Note: Dominant Larsen should be included in this group (because of dislocations)
+
+
+// HP:0001373 ! Joint dislocation  MULTIPLE
+
+hasFeatureN(2):HP_0001373
+hasFeature:HP_0004322

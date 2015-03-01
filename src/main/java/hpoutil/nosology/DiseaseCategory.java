@@ -197,47 +197,106 @@ public class DiseaseCategory {
     }
 
 
+
+    /**
+     * @param disease A disease to be tested
+     * @param feat An HPO feature (Integer coding of its id, e.g., HP:0001234 would be 1234)
+     * @param N minimum number of annotations the disease must have to feat or descendents thereof.
+     * @return true if the disease has at least N annotations to HPO term feat or any of its ancestors, otherwise false.
+     */
+    private boolean hasAtLeastNDescendentFeatures(DiseaseAnnotation disease, Integer feat, Integer N) {
+	//String name = DiseaseCategory.hpo.getTermName(feat);
+	//String s =String.format("HP:%07d: %s",feat,name); 
+	//System.out.println("Looking for at least " + n + " annotations for " + s + " in " + disease.getDiseaseName());
+	ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
+	int n_found=0;
+	for (Integer pos:positiveannotations) {
+	    try{
+		if (DiseaseCategory.hpo.isAncestorOf(feat,pos)){
+		    n_found++;
+		} 
+	    } catch (IllegalArgumentException e) {
+		log.error(String.format("Could not find HP:%07d for disease %s",pos,disease.getDiseaseName()));
+		continue;
+	    }
+	}
+	if (n_found < N)
+	    return false;
+	else
+	    return true;
+    }
+
+
+    /**
+     * Some of the categories are defined based on disease genes. In this case, a disease must be
+     * associated with at least one of the disease genes to be considered a member of the
+     * category (some other conditions may apply).
+     * @param disease Disease to be tested for having at least one of the disease genes for this category
+     */
+    private boolean hasDiseaseGene(DiseaseAnnotation disease) {
+	for (String symbol:this.diseasegenes) {
+	    if (disease.hasDiseaseGene(symbol)) {
+		return true;
+	    }
+	}
+	/* If we get here, no match was found */
+	return false;
+    }
+
+
+    /**
+     * This function checks if a disease has an annotation for an HPO 
+     * term that is used as a NOT annotation for the category. That is, if
+     * category XYZ has NOT sneezing, and disease abc is annotated to 
+     * sneezing, this function will return true. In that case, the
+     * disease should be rejected.
+     * @param disease The disease to be evaluated for category membership
+     * @param not An HPO term that Category members CANNOT have
+     */
+    public boolean hasNOTannotation(DiseaseAnnotation disease, Integer not) {
+	ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
+	for (Integer pos:positiveannotations) {
+	    try{
+		if (DiseaseCategory.hpo.isAncestorOf(not,pos)){
+		    notMemberCount++;
+		    return true;
+		}
+	    } catch (IllegalArgumentException e) {
+		log.error(String.format("Could not find HP:%07d for disease %s",pos,disease.getDiseaseName()));
+		continue;
+	    }
+	}
+	/* If we get here, there was no contradiction. */
+	return false;
+    }
+
+
+
     public boolean evaluateCandidateDisease(DiseaseAnnotation disease) {
 	boolean verbose=false;
 	if (disease.MIMid().equals(200600))
 	    verbose=true;
 
 	if (this.diseasegenes != null && this.diseasegenes.size()>0) {
-	    boolean match=false; // at least one gene must match
-	    for (String symbol:this.diseasegenes) {
-		if (disease.hasDiseaseGene(symbol)) {
-		    match=true;
-		    break;
-		}
-	    }
-	    if (!match) {
-		notMemberCount++;
+	    boolean OK = hasDiseaseGene(disease);
+	    if (!OK) {
+		notMemberCount++; 
 		return false;
 	    }
 	}
+	/* If we get here, then either the Category is not defined by means of
+	 * a disease gene (then diseasegenes.size()==0), or the disease in question
+	 * is associated with one of the disease genes. */
+
 	// If a disease has a NOT feature, then it cannot belong to this category
-	boolean reject = false;
 	for (Integer not: notFeaturelist) {
-	    ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
-	     for (Integer pos:positiveannotations) {
-		 try{
-		     if (DiseaseCategory.hpo.isAncestorOf(not,pos)){
-			 notMemberCount++;
-			 return false;
-		     }
-		 } catch (IllegalArgumentException e) {
-		     log.error(String.format("Could not find HP:%07d for disease %s",pos,disease.getDiseaseName()));
-		     continue;
-		 }
-	     }
+	    boolean reject = hasNOTannotation(disease, not);
+	    if (reject) {
+		notMemberCount++; 
+		return false;
+	    }
 	 }
-	if (this.featurelist==null || this.featurelist.size()==0) {
-	    /* If we get here, then the DiseaseCategory definition does
-	       not have any HPO terms that a candidate disease has to have, 
-	       and the other conditions about disease genes and NOT terms
-	       were ok */
-	    return true;
-	}
+	// Now check for constraints that a disease have at least N features descending from some term.
 
 	if (featureNlist!=null && featureNlist.size()>0) {
 	    int i;
@@ -245,27 +304,18 @@ public class DiseaseCategory {
 	    for (i=0;i<len;i++) {
 		Integer feat = featureNlist.get(i);
 		Integer n = N.get(i);
-		//String name = DiseaseCategory.hpo.getTermName(feat);
-		//String s =String.format("HP:%07d: %s",feat,name); 
-		//System.out.println("Looking for at least " + n + " annotations for " + s + " in " + disease.getDiseaseName());
-		ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
-		int n_found=0;
-		for (Integer pos:positiveannotations) {
-		    try{
-			if (DiseaseCategory.hpo.isAncestorOf(feat,pos)){
-			    n_found++;
-			} 
-			
-		    } catch (IllegalArgumentException e) {
-		     log.error(String.format("Could not find HP:%07d for disease %s",pos,disease.getDiseaseName()));
-		     continue;
-		 }
-		}
-		if (n_found < n)
-		    return false;
+		boolean OK =  hasAtLeastNDescendentFeatures(disease,feat,n);
+		if (! OK) return false; /* the disease did not have enough annotations that match feat */
 	    }
 	}
-
+	/* if we get here, then the disease has satisfied and featureN constraints there were. */
+	if (this.featurelist==null || this.featurelist.size()==0) {
+	    /* If we get here, then the DiseaseCategory definition does
+	       not have any HPO terms that a candidate disease has to have, 
+	       and the other conditions about disease genes and NOT terms
+	       were ok */
+	    return true;
+	}
 
 	int n_found=0;
 	for (Integer yes: this.featurelist) {

@@ -48,6 +48,9 @@ public class CategoryParser {
 	    "AcromelicDysplasiaGroup.nos", /* #15 */
 	    "BentBonesGroup.nos", /* #18 */
 	    "SlenderBonesGroup.nos", /* #19 */
+	    "DysplasiasWithMultipleJointDislocationsGroup.nos", /* #20 */
+	    "ChondrodysplasiaPunctataGroup.nos", /* #21 */
+	    "IncreasedBoneDensityWithoutModificationOfBoneShapeGroup.nos", /* #22 */
 	    "CraniosynostosisGroup.nos",
 
 	};

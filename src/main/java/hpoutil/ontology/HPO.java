@@ -67,7 +67,10 @@ public class HPO {
 
 
     /**
-     * return true of t1 is an ansecetor of t2
+     * Checks if HPO term t1 is the same as term t2 or if t2 is a descendent of t1.
+     * @param t1 Integer representation of term 1 (e.g., 1234 for HP:0001234)
+     * @param t2 Integer representation of term 2 (e.g., 1234 for HP:0001234)
+     * @return true of t1 is an ancestor of t2 (or equal)
      */
     public boolean isAncestorOf(Integer t1, Integer t2) {
 	Term term1 = this.termmap.get(t1);

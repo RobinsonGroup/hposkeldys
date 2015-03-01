@@ -1,0 +1,24 @@
+name:ChondrodysplasiaPunctataGroup
+//Chondrodysplasia Punctata Group
+
+// Note that stippling can occur in several syndromes such as Zellweger 
+// Smith Lemli Optiz, and others. See als
+// desmosterolosis as well as SEMD short limb-abnormal calcification
+
+gold:302960 = CDP, X-linked dominant, Conradi–Hunermann type (CDPX2)
+gold:302950 = CDP, X-linked recessive, brachytelephalangic type (CDPX1)
+gold:308050 = Congenital hemidysplasia, ichthyosis, limb defects (CHILD)
+gold:215140 = Greenberg dysplasia
+gold:215100 = Rhizomelic CDP type 1
+gold:222765 = Rhizomelic CDP type 2
+gold:600121 = Rhizomelic CDP type 3
+gold:118651 = CDP tibial-metacarpal type
+
+//"302960,302950,308050,215140,215100,222765,600121,118651"
+
+// #hasGermlineMutationIn EBP, ARSE, NSDHL, LBR, PEX7, DHPAT, AGPS
+// hasFeature  epiphyseal stippling (HP_0010655)
+
+
+
+hasFeature:HP_0010655

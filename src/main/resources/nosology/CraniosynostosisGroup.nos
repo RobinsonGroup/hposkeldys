@@ -1,0 +1,24 @@
+name:CraniosynostosisGroup
+Craniosynostosis Group
+
+gold:101600 = Pfeiffer syndrome (FGFR1-related)
+gold:101600 = Pfeiffer syndrome (FGFR2-related)
+//See also Jackson–Weiss syndrome (MIM 123150) and Antley–Bixler variants caused by FGFR2 mutations  
+gold:201750 = Antley–Bixler syndrome
+gold:101200 = Apert syndrome 
+gold:123790 = Craniosynostosis with cutis gyrata (Beare–Stevenson)
+gold:123500 = Crouzon syndrome
+gold:612247 = Crouzon-like craniosynostosis with acanthosis nigricans (Crouzonodermoskeletal syndrome)
+gold:602849 = Craniosynostosis, Muenke type
+gold:604757 = Craniosynostosis Boston type
+gold:101400 = Saethre-Chotzen syndrome
+gold:182212 = Shprintzen-Goldberg syndrome
+gold:218600 = Baller-Gerold syndrome
+gold:201000 = Carpenter syndrome
+
+//101600, 101600, 201750, 101200, 123790, 123500, 612247, 602849, 604757, 101400, 182212, 218600, 201000]
+
+//#hasGermlineMutationIn FGFR1, FGFR2, FGFR3, POR, MSX2, TWIST1, RECQL4, RAB23
+// HPO_craniosynostosis = "HP_0001363";
+
+hasFeature:HP_0001363

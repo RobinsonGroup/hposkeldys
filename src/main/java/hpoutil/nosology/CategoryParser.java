@@ -48,6 +48,7 @@ public class CategoryParser {
 	    "AcromelicDysplasiaGroup.nos", /* #15 */
 	    "BentBonesGroup.nos", /* #18 */
 	    "SlenderBonesGroup.nos", /* #19 */
+	    "CraniosynostosisGroup.nos",
 
 	};
 	ArrayList<String> ret = new ArrayList<String>();

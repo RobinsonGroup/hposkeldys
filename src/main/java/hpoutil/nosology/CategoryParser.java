@@ -46,6 +46,8 @@ public class CategoryParser {
 	    "SpondyloEpiMetaphysealDysplasia_Group.nos", /* 13 */
 	    "AcromesomelicDysplasiaGroup.nos", /* #16 */
 	    "AcromelicDysplasiaGroup.nos", /* #15 */
+	    "BentBonesGroup.nos", /* #18 */
+	    "SlenderBonesGroup.nos", /* #19 */
 
 	};
 	ArrayList<String> ret = new ArrayList<String>();
@@ -82,6 +84,8 @@ public class CategoryParser {
 	ArrayList<Integer> featurelist=new ArrayList<Integer>();
 	ArrayList<Integer> notFeaturelist=new ArrayList<Integer>();
 	ArrayList<Integer> optionallist=new ArrayList<Integer>();
+	ArrayList<Integer> featureNlist=new ArrayList<Integer>();
+	ArrayList<Integer> N=new ArrayList<Integer>();
 	String name=null;
 	try {
 	    BufferedReader br = new BufferedReader(new FileReader(filepath));
@@ -110,6 +114,14 @@ public class CategoryParser {
 		    String hp=line.substring(11).trim();
 		    Integer hpo=getHPcode(hp);
 		    featurelist.add(hpo);
+		} else if (line.startsWith("hasFeatureN(")) {
+		    line=line.substring(12).trim();
+		    int x = line.indexOf(")");
+		    Integer n = Integer.parseInt(line.substring(0,x));
+		    line=line.substring(x+2); /* skip the '):' */
+		    Integer hpo=getHPcode(line);
+		    featureNlist.add(hpo);
+		    N.add(n);
 		} else if (line.startsWith("hasOptionalFeature:")) {
 		    String hp = line.substring(19).trim();
 		    Integer hpo=getHPcode(hp);
@@ -125,6 +137,8 @@ public class CategoryParser {
 	dc.addGoldStandard(goldstandard);
 	if (optionallist.size()>0)
 	    dc.setOptionalList(optionallist);
+	if (featureNlist.size()>0)
+	    dc.setFeatureN(featureNlist,N);
 	this.categorylist.add(dc);
 	    
     }

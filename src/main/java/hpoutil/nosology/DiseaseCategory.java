@@ -29,6 +29,12 @@ public class DiseaseCategory {
     private ArrayList<Integer>notFeaturelist=null;
     /** At least one of these features must be present */
     private ArrayList<Integer> optionalFeaturelist=null;
+    /** At least {@link #N} descendents of this feature must be present
+	to call the disease*/
+    private ArrayList<Integer> featureNlist;
+    /** Minimum number of times {@link #featureNlist} must be present
+     Note: Order of arraylist matches.*/
+    private ArrayList<Integer> N;
 
     HashMap<Integer,String> goldstandard=null;
     /** Count of diseases we evaluated but found not to be members of this category */
@@ -40,6 +46,13 @@ public class DiseaseCategory {
 
     public void setOptionalList(ArrayList<Integer> list) {
 	optionalFeaturelist=list;
+    }
+    /** Sets HPO terms that must be present at least N times. Note, 
+	featureNlist.get(i) must be present N.get(i) times.
+    */
+    public void setFeatureN(ArrayList<Integer> featureNlist,ArrayList<Integer> N) {
+	this.featureNlist=featureNlist;
+	this.N=N;
     }
 
     public DiseaseCategory( String name, ArrayList<String> diseasegenes,ArrayList<Integer> flist,ArrayList<Integer>notflist) {
@@ -106,6 +119,16 @@ public class DiseaseCategory {
 	out.write("NOT features: " + joinHPO(this.notFeaturelist) + "\n");
 	out.write("Required features: " + joinHPO(this.featurelist)+ "\n");
 	out.write("Optional features(>=1 must be present):" + joinHPO(this.optionalFeaturelist)+"\n");
+	if (this.featureNlist!=null) {
+	    int len = this.featureNlist.size();
+	    for (int i=0;i<len;++i) {
+		Integer id = this.featureNlist.get(i);
+		n = this.N.get(i);
+		String name = DiseaseCategory.hpo.getTermName(id);
+		String s =String.format("HP:%07d: %s",id,name); 
+		out.write(String.format("Require at least %d descendents of %s\n",n,s));
+	    } 
+	}
     }
 
 
@@ -215,16 +238,45 @@ public class DiseaseCategory {
 	       were ok */
 	    return true;
 	}
+
+	if (featureNlist!=null && featureNlist.size()>0) {
+	    int i;
+	    int len = featureNlist.size();
+	    for (i=0;i<len;i++) {
+		Integer feat = featureNlist.get(i);
+		Integer n = N.get(i);
+		//String name = DiseaseCategory.hpo.getTermName(feat);
+		//String s =String.format("HP:%07d: %s",feat,name); 
+		//System.out.println("Looking for at least " + n + " annotations for " + s + " in " + disease.getDiseaseName());
+		ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
+		int n_found=0;
+		for (Integer pos:positiveannotations) {
+		    try{
+			if (DiseaseCategory.hpo.isAncestorOf(feat,pos)){
+			    n_found++;
+			} 
+			
+		    } catch (IllegalArgumentException e) {
+		     log.error(String.format("Could not find HP:%07d for disease %s",pos,disease.getDiseaseName()));
+		     continue;
+		 }
+		}
+		if (n_found < n)
+		    return false;
+	    }
+	}
+
+
 	int n_found=0;
 	for (Integer yes: this.featurelist) {
-	    if (verbose) {
-		System.out.println(String.format("-required- HP:%07d - %s",yes,DiseaseCategory.hpo.getTermName(yes)));
-	    }
+	    //if (verbose) {
+	    //	System.out.println(String.format("-required- HP:%07d - %s",yes,DiseaseCategory.hpo.getTermName(yes)));
+	    // }
 	    ArrayList<Integer> positiveannotations = disease.getPositiveAnnotations();
 	    for (Integer pos:positiveannotations) {
-		if (verbose) {
-		    System.out.println(String.format("-annot-HP:%07d - %s",pos,DiseaseCategory.hpo.getTermName(pos)));
-		}
+		//	if (verbose) {
+		//  System.out.println(String.format("-annot-HP:%07d - %s",pos,DiseaseCategory.hpo.getTermName(pos)));
+		//}
 		 try{
 		     if (DiseaseCategory.hpo.isAncestorOf(yes,pos)){
 			 n_found++;

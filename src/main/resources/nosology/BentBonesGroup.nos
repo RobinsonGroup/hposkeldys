@@ -1,0 +1,20 @@
+name:BentBonesGroup
+//Bent Bones Dysplasia Group
+//Camptomelia: A skeletal dysplasia characterized by a bending of the long bones of the limbs
+
+gold:114290 = Campomelic dysplasia (CD)
+gold:601559 = Stuve–Wiedemann dysplasia
+gold:211350 = Kyphomelic dysplasia, several forms
+
+
+
+// #hasGermlineMutationIn SOX9, LIFR
+// Class definition is difficult for this class as the OMIM definitions do not have "bent" and it is unclear if this
+// is bowing or something else. For now, try Bowing of long bones and short stature.
+
+// hasFeature HP_0006487: Bowing of long bones (syn: camptomelia)
+// disproportionate short stature HP_0003498 (or short stature, 4322)
+
+hasFeature:HP_0004322
+hasFeature:HP_0003026
+hasFeatureN(2):HP_0006487

@@ -1,0 +1,45 @@
+name:DysostosisMultiplexGroup
+//Lysosomal storage diseases with skeletal involvement (dysostosis multiplex group)
+
+gold:607014 = Mucopolysaccharidosis type 1H/1S 
+gold:309900 = Mucopolysaccharidosis type 2 
+gold:252900 = Mucopolysaccharidosis type 3A AR 
+gold:252920 = Mucopolysaccharidosis type 3B AR  
+gold:252930 = Mucopolysaccharidosis type 3C  
+gold:252940 = Mucopolysaccharidosis type 3D AR  
+gold:253000 = Mucopolysaccharidosis type 4A AR    
+gold:253010 = Mucopolysaccharidosis type 4B AR  
+gold:253200 = Mucopolysaccharidosis type 6 AR  
+gold:253220 = Mucopolysaccharidosis type 7 AR  
+gold:230000 = Fucosidosis AR  1 
+gold:248500 = alpha-Mannosidosis AR  
+gold:248510 = beta-Mannosidosis
+gold:208400 = Aspartylglucosaminuria 
+gold:230500 = GMI Gangliosidosis, several forms
+gold:256550 = Sialidosis, several forms AR 
+gold:269920 = Sialic acid storage disease (SIASD)
+gold:256540 = Galactosialidosis, several forms AR    
+gold:272200 = Multiple sulfatase deficiency AR  
+gold:252500 = Mucolipidosis II (I-cell disease), alpha/beta type 
+gold:252600 = Mucolipidosis III (Pseudo-Hurler polydystrophy)alpha/beta type 
+gold:252605 = Mucolipidosis III (Pseudo-Hurler polydystrophy), gamma type
+
+//[607014, 309900, 252900, 252920, 252930, 252940, 253000, 253010, 253200, 253220, 230000, 248500, 248510, 208400, 230500, 256550, 269920, 256540, 272200, 252500, 252600, 252605]
+
+// #hasGermlineMutationIn IDA, IDS, HSS, NAGLU, HSGNAT, GNS, GALNS,  GLBI, ARSB, GUSB, FUCA, MANA, MANB, AGA, GLB1, NEU1, SLC17A5, PPGB, SUMF1, GNPTAB, GNPTG
+// hasFeature HPO_abnormality_of_mucopolysaccharide_metabolism = "HP_0011020";
+
+// ANDREAS
+// Dysostosis multiplex (HP:0000943)
+// Bullet shaped phalanges of the hand (HP:0009769)
+// J-shaped sella (HP:0002680)
+// Abnormality of the illium (HP:0002867)
+// Proximal tapering of metacarpals (HP:0006119)
+
+hasFeature:HP_0001939
+hasFeature:HP_0001999
+hasFeature:HP_0001507
+hasFeature:HP_0001626
+hasFeature:HP_0001392
+// OR HP_0000765 OR HP_0001249
+

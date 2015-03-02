@@ -51,6 +51,10 @@ public class CategoryParser {
 	    "DysplasiasWithMultipleJointDislocationsGroup.nos", /* #20 */
 	    "ChondrodysplasiaPunctataGroup.nos", /* #21 */
 	    "IncreasedBoneDensityWithoutModificationOfBoneShapeGroup.nos", /* #22 */
+	    "IncreasedBoneDensityWithMetaphysealDiaphysealInvolvementGroup.nos", /* #23 */
+	    "OsteogenesisImperfectaGroup.nos", /* #24 */
+
+	    "DysostosisMultiplexGroup.nos", /* 27 */
 	    "CraniosynostosisGroup.nos",
 
 	};

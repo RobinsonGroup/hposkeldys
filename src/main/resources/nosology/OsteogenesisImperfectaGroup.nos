@@ -1,0 +1,33 @@
+name:OsteogenesisImperfecta
+//Osteogenesis imperfecta and decreased bone density group
+
+gold:166200 = Osteogenesis imperfecta, non-deforming form (OI type 1)
+gold:166210 = Osteogenesis imperfecta, perinatal lethal form (OI type 2)
+gold:259420 = Osteogenesis imperfecta, progressively deforming type (OI type 3)
+gold:166220 = Osteogenesis imperfecta, moderate form (OI type 4)
+gold:610967 = Osteogenesis imperfecta with calcification of the interosseous membranes and/or hypertrophic callus (OI type 5)
+gold:259450 = Bruck syndrome type 1 (BS1)
+gold:609220 = Bruck syndrome type 2 (BS2)
+gold:259770 = Osteoporosis-pseudoglioma syndrome
+gold:126550 = Calvarial doughnut lesions with bone fragility
+gold:259750 = Idiopathic juvenile osteoporosis
+gold:112240 = Cole-Carpenter dysplasia (bone fragility with craniosynostosis)
+gold:605822 = Spondylo-ocular dysplasia
+gold:166260 = Osteopenia with radiolucent lesions of the mandible
+gold:130070 = Ehlers–Danlos syndrome, progeroid form
+gold:231070 = Geroderma osteodysplasticum
+gold:612940 = Cutis laxa, autosomal recessive form, type 2B (ARCL2B)
+gold:278250 = Wrinkly skin syndrome
+gold:219200 = Cutis laxa, autosomal recessive form, type 2A (ARCL2A) (Wrinkly skin syndrome)
+gold:182250 = Singleton-Merten dysplasia
+
+//[166200, 166210, 259420, 166220, 610967, 259450, 609220, 259770, 126550, 259750, 112240, 605822, 166260, 130070, 231070, 612940, 278250, 219200, 182250]
+
+// #hasGermlineMutationIn ATP6VOA2, PYCR1, GORAB, B4GALT7, LRP5, PLOD2, FKBP10, COL1A1, COL1A2, CRTAP, SP7, SERPINH1, PPIB, LEPRE1
+// hasFeature reduced_bone_mineral_density (HP_0004349) 
+// hasFeature increased_susceptibility_to_fractures (HP_0002659)
+//Abnormal bone ossification HP:0011849
+
+hasOptionalFeature:HP_0004349
+hasOptionalFeature:HP_0011849
+hasFeature:HP_0002659

@@ -1,0 +1,33 @@
+name:AbnormalMineralizationGroup
+//Abnormal Mineralization Group
+
+gold:241500 = Hypophosphatasia, perinatal lethal and infantile forms 
+gold:146300 = Hypophosphatasia, adult form  
+gold:307800 = Hypophosphatemic rickets, X-linked dominant 
+gold:193100 = Hypophosphatemic rickets, autosomal dominant 
+gold:241520 = Hypophosphatemic rickets, autosomal recessive, type 1 (ARHR1) 
+gold:613312 = Hypophosphatemic rickets, autosomal recessive, type 2 (ARHR2)
+gold:300554 = Hypophosphatemic rickets with hypercalciuria, X-linked recessive
+gold:241530 = Hypophosphatemic rickets with hypercalciuria, autosomal recessive (HHRH) => Note mistaken MIM number in 2010 nosoloy 241539
+gold:239200 = Neonatal hyperparathyroidism, severe form 
+gold:145980 = Familial hypocalciuric hypercalcemia with transient neonatal hyperparathyroidism 
+gold:118600 = Calcium pyrophosphate deposition disease (familial chondrocalcinosis) type 2 
+
+//[241500, 146300, 307800, 193100, 241520, 613312, 300554, 241530, 239200, 145980, 118600]
+
+// #hasGermlineMutation ALPL, PHEX, FGF23, DMP1, ENPP1, ClCN5, SLC34A3, CASR, ANKH
+
+// 0. HP:0004349 ! Reduced bone mineral density
+//HP:0002659 ! Increased susceptibility to fractures
+// ONE OR MORE OF
+// Some 1. HP:0004379 ! Abnormality of alkaline phosphatase activity
+// Some 2. HP:0100529 ! Abnormality of phosphate homeostasis
+// Some 3. HP:0004363 ! Abnormality of calcium homeostasis
+// 
+
+
+hasFeature:HP_0004349
+hasFeature:HP_0002659
+hasOptionalFeature:HP:0004379
+hasOptionalFeature:HP:0100529
+hasOptionalFeature:HP:0004363

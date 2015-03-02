@@ -1,0 +1,49 @@
+name:IncreasedBoneDensityWithMetaphysealDiaphysealInvolvementGroup
+//Increased bone density group with metaphyseal and/or diaphyseal involvement
+
+gold:123000 = Craniometaphyseal dysplasia, autosomal dominant type
+gold:131300 = Diaphyseal dysplasia Camurati-Engelmann
+gold:231095 = Hematodiaphyseal dysplasia Ghosal
+gold:259100 = Hypertrophic osteoarthropathy
+gold:167100 = Pachydermoperiostosis (hypertrophic osteoarthropathy, primary, autosomal dominant)
+gold:164200 = Oculodentoosseous dysplasia (ODOD) mild type
+gold:257850 = Oculodentoosseous dysplasia (ODOD) severe type
+gold:239000 = Osteoectasia with hyperphosphatasia (juvenile Paget disease)
+gold:269500 = Sclerosteosis
+gold:239100 = Endosteal hyperostosis, van Buchem type
+gold:190320 = Trichodentoosseous dysplasia
+gold:218400 = Craniometaphyseal dysplasia, autosomal recessive type
+gold:112250 = Diaphyseal medullary stenosis with bone malignancy
+gold:122860 = Craniodiaphyseal dysplasia
+gold:213002 = Endosteal sclerosis with cerebellar hypoplasia
+gold:151050 = Lenz–Majewski hyperostotic dysplasia
+gold:605946 = Metaphyseal dysplasia, Braun-Tinschert type
+gold:265900 = Pyle disease
+
+//[123000, 131300, 231095, 259100, 167100, 164200, 257850, 239000, 269500, 239100, 190320, 218400, 112250, 122860, 213002, 151050, 605946, 265900]
+
+// #hasGermlineMutationIn ANKH, TGFbeta1, TBXAS1, HPGD, GJA1, OPG, SOST, DLX3
+// hasFeature HPO_increased_bone_mineral_density = "HP_0011001" AND
+// hasFeature HPO_abnormality_of_the_metaphysis = "HP_0010585"; OR 
+// hasFeature HPO_abnormality_of_the_diaphyses = "HP_0011314";
+
+// ANDREAS
+// Generalized osteosclerosis (HP:0005789)
+// Increased bone mineral density (HP:0011001)
+// Patchy osteosclerosis (HP:0005686)
+
+// Metaphyseal dysplasia (HP:0100255)
+// Cortical thickening of long bone diaphyses (HP:0005791)
+// Diaphyseal dysplasia (HP:0100252)
+// Diaphyseal sclerosis (HP:0003034)
+// Note: very heterogenous group, features above only apply to some members of the group, also overlap with groups 22 and 23
+
+// Increased bone mineral density (HP:0011001)
+// OPtional Abnormality of the metaphyses (HP:0000944)  OR Abnormal diaphysis morphology HP_0000940
+
+hasFeature:HP_0011001
+hasOptionalFeature:HP_0000944
+hasOptionalFeature:HP_0000940
+
+
+

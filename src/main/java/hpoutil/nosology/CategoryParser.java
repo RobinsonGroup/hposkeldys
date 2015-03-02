@@ -56,6 +56,8 @@ public class CategoryParser {
 
 	    "DysostosisMultiplexGroup.nos", /* 27 */
 	    "CraniosynostosisGroup.nos",
+	    "OsteolysisGroup.nos",
+	    "PolydactylySyndactylyTriphalangismGroup.nos", /* # 39 */
 
 	};
 	ArrayList<String> ret = new ArrayList<String>();

@@ -1,0 +1,19 @@
+name:OsteolysisGroup
+//Osteolysis Group
+
+gold:174810 = Familial expansile osteolysis
+gold:248370 = Mandibuloacral dysplasia type A
+gold:608612 = Mandibuloacral dysplasia type B
+gold:176670 = Progeria, Hutchinson–Gilford type AD
+gold:259600 = Torg–Winchester syndrome AR  Includes Nodulosis–Arthropathy–Osteolysis syndrome (MIM 605156)
+gold:102500 = Hajdu–Cheney syndrome AD
+gold:166300 = Multicentric carpal-tarsal osteolysis with and without nephropathy
+gold:221770 = Lipomembraneous osteodystrophy with leukoencephalopathy (Nasu–Hakola)
+
+//[174810, 248370, 608612, 176670, 259600, 102500, 166300, 221770]
+
+// #hasGermlineMutation RANK, TNFRSF11A, LMNA, ZMPSTE24, MMP2, TREM2, TYROBP
+// HPO_osteolysis = "HP_0002797"
+
+
+hasFeature:HP_0002797

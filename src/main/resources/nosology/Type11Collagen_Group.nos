@@ -5,6 +5,13 @@ gold:154780=Marshall syndrome
 gold:228520=Fibrochondrogenesis
 gold:215150=Otospondylomegaepiphyseal dysplasia (OSMED), recessive type / dominant type
 //
+
+// NOTE THAT 215150 is not found because it is also COL2A1 -- need to refactor this!
+
+// Also hasFeature HP:0000924, Abnormality of the skeletal system
+// since otherwise we get some col11 deafness syndromes
+
 hasGermlineMutationIn:COL11A1
 hasGermlineMutationIn:COL11A2
+hasFeature:HP_0000924
 

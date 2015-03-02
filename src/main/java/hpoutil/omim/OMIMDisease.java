@@ -188,7 +188,16 @@ public class OMIMDisease {
     
     @Override
     public String toString() {
-	return " - " + omim_id  + " - " + is_somatic + " - " + is_modifier + " - " + genes;
+	String ret = String.format("MIM:%d",omim_id);
+	if (is_somatic)
+	    ret = String.format("%s somatic:yes",ret);
+	else
+	    ret = String.format("%s somatic:no",ret);
+	if (is_modifier)
+	    ret = String.format(" %s, modifier:yes. genes: %s",ret,genes);
+	else
+	    ret = String.format(" %s, modifier:no. genes: %s",ret, genes);
+	return ret;
     }
 }
 

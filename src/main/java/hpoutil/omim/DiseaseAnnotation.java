@@ -56,8 +56,25 @@ public class DiseaseAnnotation {
 	this.parseDiseaseFile(filename);
     }
 
+
+    private String join(ArrayList<String> al) {
+	if (al==null || al.size()==0)
+	    return "-";
+	if (al.size()==1)
+	    return al.get(0);
+	StringBuilder sb = new StringBuilder();
+	sb.append(al.get(0));
+	int len = al.size();
+	for (int i=1;i<len;i++) {
+	    sb.append("," + al.get(i));
+	}
+	return sb.toString();
+    }
+
+
     public String toString() {
-	return String.format("MIM:%06d %s", this.diseaseId,this.diseaseName);
+	String genes = join(diseaseGenes);
+	return String.format("MIM:%06d %s [%s]", this.diseaseId,this.diseaseName,genes);
     }
 
 

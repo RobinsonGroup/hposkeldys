@@ -31,16 +31,8 @@ public class MorbidMap {
 	disease2gene_map = new HashMap<Integer, List<OMIMDisease>>();
 	parseMorbidMapFile(morbid_map_path);
 	
-	/*
-	  System.out.println(" ========================== ");
-	  for (String omim : disease2gene_map.keySet()) {
-	  List<OMIMDisease> list = disease2gene_map.get(omim);
-	  System.out.println(" - OMIM: " + omim);
-	  for (OMIMDisease dis : list) {
-	  System.out.println(" -- " + dis);
-	  }
-	  }
-	*/
+	//debugPrint();
+
 	log.info("Got a total of " + disease2gene_map.size() + " diseases from morbidmap");
 	/*
 	int one=0;
@@ -111,6 +103,20 @@ public class MorbidMap {
 		e.printStackTrace();
 	    }
 	}
+
+
+    public void debugPrint() {
+	System.out.println(" === MORBID MAP === ");
+	for (Integer omim : disease2gene_map.keySet()) {
+	    List<OMIMDisease> list = disease2gene_map.get(omim);
+	    System.out.println("OMIM: " + omim);
+	    for (OMIMDisease dis : list) {
+		System.out.println("\t" + dis);
+	    }
+	}
+    }
+
+
     
     private void checkAndAdd(OMIMDisease omim) {
 	List<OMIMDisease> list = disease2gene_map.get(omim.getOMIM_ID());

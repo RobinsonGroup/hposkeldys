@@ -14,7 +14,7 @@ import hpoutil.omim.DiseaseAnnotation;
 /**
  * This class represents one of the 40 skeletal nosology categories
  * @author Peter Robinson
- * @version 0.01 (25 Feb)
+ * @version 0.02 (1 March 2015)
  */
 public class DiseaseCategory {
 
@@ -41,6 +41,8 @@ public class DiseaseCategory {
     int notMemberCount=0;
 
     ArrayList<DiseaseAnnotation> goodCandidate=new ArrayList<DiseaseAnnotation>();
+    /** Keep a list of the false negative candidates here. */
+    ArrayList<DiseaseAnnotation> notFound=new ArrayList<DiseaseAnnotation>();
 
     public void addGoldStandard(HashMap<Integer,String> gs) { this.goldstandard=gs; }
 
@@ -166,6 +168,9 @@ public class DiseaseCategory {
 		    out.write("Did not found disease " + ret + "\n");
 
 		}
+		}
+	    for (DiseaseAnnotation notda:this.notFound) {
+		out.write("Did not find:" + notda + "\n");
 	    }
 	}
 	if (newprediction.size()==0) {
@@ -192,6 +197,10 @@ public class DiseaseCategory {
 	    boolean ok = evaluateCandidateDisease(d);
 	    if (ok) {
 		goodCandidate.add(d);
+	    } else {
+		if (this.goldstandard.containsKey(id)) {
+		    notFound.add(d);
+		}
 	    }
 	}
     }

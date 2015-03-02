@@ -1,0 +1,48 @@
+name:PolydactylySyndactylyTriphalangismGroup
+//Polydactyly-Syndactyly-Triphalangism Group
+
+gold:174400 = Preaxial polydactyly type 1 (PPD1)
+gold:174500 = Preaxial polydactyly type 2 (PPD2) / triphalangeal thumb (TPT)
+gold:174600 = Preaxial polydactyly type 3 (PPD3)
+gold:174700 = Preaxial polydactyly type 4 (PPD4)
+gold:175700 = Greig cephalopolysyndactyly syndrome
+gold:146510 = Pallister–Hall syndrome
+gold:608180 = Synpolydactyly (complex, fibulin1—associated)
+gold:186000 = Synpolydactyly
+gold:107480 = Townes–Brocks syndrome (Renal-Ear-Anal-Radial syndrome)
+gold:149730 = Lacrimo-auriculo-dento-digital syndrome (LADD)
+gold:200990 = Acrocallosal syndrome
+gold:605967 = Acro-pectoral syndrome
+gold:102510 = Acro-pectoro-vertebral dysplasia (F-syndrome)
+gold:135750 = Mirror-image polydactyly of hands and feet (Laurin–Sandrow syndrome)
+gold:212780 = Cenani–Lenz syndactyly
+gold:609432 = Syndactyly, Malik–Percin type
+gold:300707 = STAR syndrome (syndactyly of toes, telecanthus, ano-, and renal malformations)
+gold:185900 = Syndactyly type 1
+gold:186100 = Syndactyly type 3
+gold:186200 = Syndactyly type 4
+gold:186300 = Syndactyly type 5 (syndactyly with metacarpal and metatarsal fusion)
+gold:601222 = Syndactyly with craniosynostosis (Philadelphia type)
+gold:272440 = Syndactyly with microcephaly and mental retardation (Filippi syndrome)
+gold:249000 = Meckel syndrome type 1
+gold:603194 = Meckel syndrome type 2
+gold:607361 = Meckel syndrome type 3
+gold:611134 = Meckel syndrome type 4
+gold:611561 = Meckel syndrome type 5
+gold:612284 = Meckel syndrome type 6
+
+
+//[174400, 174500, 174600, 174700, 175700, 146510, 608180, 186000, 
+//107480, 149730, 200990, 605967, 102510, 135750, 212780, 609432, 300707, 
+//185900, 186100, 186200, 186300, 601222, 272440, 249000, 603194, 607361, 611134, 611561, 612284]
+
+// #hasGermlineMutationIn SHH, GLI3, FBLN1, HOXD13, SALL1, FGFR2, FGFR3,
+//FGF10, LRP4, GREM1, FMN1, FAM58A, GJA1, MKS1, TMEM67, CEP290, RPGRIP1L, CC2D2A
+// hasFeature Polydactyly (HP:0001159) OR
+// hasFeature Syndactyly (HP:0010442) OR
+// hasFeature Triphalangeal thumb (HP:0001199)
+
+
+//hasOptionalFeature:HP:0001199
+//hasOptionalFeature:HP:0010442
+hasFeatureN(2):HP:0001159

@@ -40,10 +40,11 @@ public class CategoryParser {
 	    "TRPV4_Group.nos",  /* #8 */
 	    "ShortRibsDysplasia_Group.nos", /* #9 */
 	    "MEDandPseudoachondroplasia_Group.nos", /* #10 */
-	    // Starting here we need to chage the order to make things more specific! */
+	    // Starting here we need to change the order to make things more specific! */
+	    "SpondylometaphysealDysplasiaGroup.nos", /* #12 */
 	    "SevereSpondylodysplasticGroup.nos", /* 14 */
 	    "MetaphysealDysplasia_Group.nos", /* #11 */
-	    "SpondyloEpiMetaphysealDysplasia_Group.nos", /* 13 */
+	    "SpondyloEpiMetaphysealDysplasiaGroup.nos", /* 13 */
 	    "AcromesomelicDysplasiaGroup.nos", /* #16 */
 	    "AcromelicDysplasiaGroup.nos", /* #15 */
 	    "BentBonesGroup.nos", /* #18 */
@@ -97,6 +98,7 @@ public class CategoryParser {
 	ArrayList<Integer> featureNlist=new ArrayList<Integer>();
 	ArrayList<Integer> N=new ArrayList<Integer>();
 	String name=null;
+	Integer number=null;
 	try {
 	    BufferedReader br = new BufferedReader(new FileReader(filepath));
 	    String line=null;
@@ -107,6 +109,8 @@ public class CategoryParser {
 		    continue;
 		else if (line.startsWith("name:"))
 		    name=line.substring(5).trim();
+		else if (line.startsWith("number:"))
+		    number=Integer.parseInt(line.substring(7).trim());
 		else if (line.startsWith("gold:")) {
 		    String gold = line.substring(5).trim();
 		    String a[] = gold.split("=");
@@ -149,6 +153,8 @@ public class CategoryParser {
 	    dc.setOptionalList(optionallist);
 	if (featureNlist.size()>0)
 	    dc.setFeatureN(featureNlist,N);
+	if (number != null)
+	    dc.setNumber(number);
 	this.categorylist.add(dc);
 	    
     }

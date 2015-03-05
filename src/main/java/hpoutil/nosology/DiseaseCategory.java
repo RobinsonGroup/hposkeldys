@@ -21,6 +21,8 @@ public class DiseaseCategory {
     private static Logger log = Logger.getLogger(DiseaseCategory.class.getName());
 
     private String categoryname=null;
+    /** Number of the category in the 2010 nosology. */
+    private int categorynumber=0;
     /** reference to teh HPO object */
     private static HPO hpo;
 
@@ -56,6 +58,8 @@ public class DiseaseCategory {
 	this.featureNlist=featureNlist;
 	this.N=N;
     }
+
+    public void setNumber(Integer n) { this.categorynumber=n; }
 
     public DiseaseCategory( String name, ArrayList<String> diseasegenes,ArrayList<Integer> flist,ArrayList<Integer>notflist) {
 	this.categoryname=name;
@@ -142,6 +146,8 @@ public class DiseaseCategory {
 	for (Integer id : this.goldstandard.keySet()) {
 	    foundGS.put(id,false);
 	}
+	if (categorynumber != 0)
+	    out.write(this.categorynumber + ".");
 	out.write(this.categoryname + "\n");
 	printDefinition(out);
 	out.write("Predictions:\n");

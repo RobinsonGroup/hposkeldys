@@ -1,5 +1,6 @@
 name:SpondyloepimetaphysealDysplasiaGroup
 //Spondylo-epi-(meta)-physeal dysplasias (SE(M)D)
+number:13
 
 gold:223800 = Dyggve–Melchior–Clausen dysplasia (DMC)
 gold:242900 = Immuno-osseous dysplasia (Schimke)

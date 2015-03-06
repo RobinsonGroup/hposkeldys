@@ -47,6 +47,7 @@ public class CategoryParser {
 	    "SpondyloEpiMetaphysealDysplasiaGroup.nos", /* 13 */
 	    "AcromesomelicDysplasiaGroup.nos", /* #16 */
 	    "AcromelicDysplasiaGroup.nos", /* #15 */
+	    "MesomelicAndRhizomesomelicDysplasiaGroup.nos", /* 17 */
 	    "BentBonesGroup.nos", /* #18 */
 	    "SlenderBonesGroup.nos", /* #19 */
 	    "DysplasiasWithMultipleJointDislocationsGroup.nos", /* #20 */
@@ -58,6 +59,7 @@ public class CategoryParser {
 	    "DysostosisMultiplexGroup.nos", /* 27 */
 	    "CraniosynostosisGroup.nos",
 	    "OsteolysisGroup.nos",
+	    "GeneticInflammatoryRheumatoidLikeOsteoarthropathiesGroup.nos", /* #31 */
 	    "PolydactylySyndactylyTriphalangismGroup.nos", /* # 39 */
 
 	};

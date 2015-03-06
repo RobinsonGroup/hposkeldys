@@ -1,0 +1,22 @@
+name:GeneticInflammatoryRheumatoidLikeOsteoarthropathiesGroup
+//Genetic Inflammatory Rheumatoid-like Osteoarthropathies Group
+number:31
+
+gold:208230 = Progressive pseudorheumatoid dysplasia (PPRD; SED with progressive arthropathy)
+gold:607115 = Chronic infantile neurologic cutaneous articular syndrome (CINCA)/neonatal onset multisystem inflammatory disease (NOMID)
+gold:612852 = Sterile multifocal osteomyelitis, periostitis, and pustulosis (CINCA/NOMID-like) -> BAD OMIM: 147679
+gold:609628 = Chronic recurrent multifocal osteomyelitis with congenital dyserythropoietic anemia (CRMO with CDA; Majeed syndrome)
+//gold:610233 = Hyperostosis/hyperphosphatemia syndrome =>> NEW OMIM: 211900
+gold:211900
+gold:236490 = Infantile systemic hyalinosis/Juvenile hyaline fibromatosis (ISH/JHF)
+
+//[208230, 607115, 612852, 609628, 211900, 236490]
+
+// #hasGermlineMutation WISP3, CIAS1, IL1RN, LPIN2, GALNT3, ANTXR2
+
+// Abnormal joint morphology (HP:0001367)
+// Inflammatory abnormality of the skin (HP:0011123)
+
+
+hasFeature:HP_0001367
+hasFeature:HP_0011123

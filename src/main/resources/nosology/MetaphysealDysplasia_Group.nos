@@ -25,5 +25,6 @@ gold:137360 = Genochondromatosis (type 1 / type 2)
 // #hasFeature HP_0000234
 
 
-hasFeature:HP_0000944
+
+hasFeatureN(2):HP_0000944
 notHasFeature:HP:0004348

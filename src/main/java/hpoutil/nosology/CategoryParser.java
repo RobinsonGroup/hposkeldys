@@ -57,6 +57,7 @@ public class CategoryParser {
 	    "DysostosisMultiplexGroup.nos", /* 27 */
 	    "CraniosynostosisGroup.nos",
 	    "OsteolysisGroup.nos",
+	    "BrachydactylyGroup.nos",
 	    "PolydactylySyndactylyTriphalangismGroup.nos", /* # 39 */
 
 	};

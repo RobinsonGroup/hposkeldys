@@ -8,6 +8,12 @@ import java.util.*;
 import java.io.File;
 import hpoutil.omim.*;
 
+/**
+ * This class is intended to parse all of the annotation files
+ * for individual OMIM diseases.
+ * @author Peter Robinson
+ * @version 0.02 (7 March 2015)
+ */
 public class HPOAnnotationFileParser {
 
     private static Logger log = Logger.getLogger(HPOAnnotationFileParser.class.getName());
@@ -17,6 +23,7 @@ public class HPOAnnotationFileParser {
 
 
     public HPOAnnotationFileParser(String directorypath) {
+	log.info("Parsing annotation files from " + directorypath);
 	List<String> filePaths = getHPOAnnotationFiles(directorypath);
 	this.diseasemap=new HashMap<Integer,DiseaseAnnotation>();
 	int c=0;
@@ -29,8 +36,9 @@ public class HPOAnnotationFileParser {
 	    }
 	    diseasemap.put(da.MIMid(),da);
 	    c++;
-	    if (c%500==0) {
+	    if (c%1000==0) {
 		log.info("Parsed " + c + " HPO annotation files");
+		System.out.println("Parsed " + c + " HPO annotation files");
 	    }
 	}
     }

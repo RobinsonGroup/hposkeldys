@@ -1,0 +1,30 @@
+name:MesomelicAndRhizomesomelicDysplasiaGroup
+number:17
+//Mesomelic and Rhizo-mesomelic Dysplasia Group
+
+gold:127300 = Dyschondrosteosis (Leri–Weill)
+gold:249700 = Langer type (homozygous dyschondrosteosis)
+gold:258315 = Omodysplasia
+gold:268310 = Robinow syndrome, recessive type
+gold:180700 = Robinow syndrome, dominant type
+gold:156232 = Mesomelic dysplasia, Kantaputra type
+gold:163400 = Mesomelic dysplasia, Nievergelt type
+gold:249710 = Mesomelic dysplasia, Kozlowski-Reardon type
+gold:600383 = Mesomelic dysplasia with acral synostoses (Verloes–David–Pfeiffer type)
+gold:605274 = Mesomelic dysplasia, Savarirayan type (Triangular Tibia–Fibular Aplasia)
+
+//[127300, 249700, 258315, 268310, 180700, 156232, 163400, 249710, 600383, 605274]
+
+// #hasGermlineMutationIn SHOX, GPC6, ROR2, SULF1, SLCO5A1
+// NOT Short finger/brachdactyl Short digit (HP:0011927)
+// NOT Short palm (HP:0004279)
+// short mid limb, Hypoplasia of the ulna (HP:0003022) or Hypoplasia of the radius (HP:0002984) or Fibular hypoplasia (HP:0003038) - (ulna/radius/fibula(tibia)
+// Maybe need short stature?
+
+//!#hasFeature HP_0011927
+//!#hasFeature HP_0004279
+//UNION(#hasFeature HP_0003022 | #hasFeature HP_0002984 | #hasFeature HP_0003038 | #hasFeature HP_0005736)
+
+hasFeature:HP_0003022
+hasOptionalFeature:HP_0002984
+hasOptionalFeature:HP_0003038

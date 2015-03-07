@@ -40,12 +40,14 @@ public class CategoryParser {
 	    "TRPV4_Group.nos",  /* #8 */
 	    "ShortRibsDysplasia_Group.nos", /* #9 */
 	    "MEDandPseudoachondroplasia_Group.nos", /* #10 */
-	    // Starting here we need to chage the order to make things more specific! */
+	    // Starting here we need to change the order to make things more specific! */
+	    "SpondylometaphysealDysplasiaGroup.nos", /* #12 */
 	    "SevereSpondylodysplasticGroup.nos", /* 14 */
 	    "MetaphysealDysplasia_Group.nos", /* #11 */
-	    "SpondyloEpiMetaphysealDysplasia_Group.nos", /* 13 */
+	    "SpondyloEpiMetaphysealDysplasiaGroup.nos", /* 13 */
 	    "AcromesomelicDysplasiaGroup.nos", /* #16 */
 	    "AcromelicDysplasiaGroup.nos", /* #15 */
+	    "MesomelicAndRhizomesomelicDysplasiaGroup.nos", /* 17 */
 	    "BentBonesGroup.nos", /* #18 */
 	    "SlenderBonesGroup.nos", /* #19 */
 	    "DysplasiasWithMultipleJointDislocationsGroup.nos", /* #20 */
@@ -58,6 +60,7 @@ public class CategoryParser {
 	    "CraniosynostosisGroup.nos",
 	    "OsteolysisGroup.nos",
 	    "BrachydactylyGroup.nos",
+	    "GeneticInflammatoryRheumatoidLikeOsteoarthropathiesGroup.nos", /* #31 */
 	    "PolydactylySyndactylyTriphalangismGroup.nos", /* # 39 */
 
 	};
@@ -98,6 +101,7 @@ public class CategoryParser {
 	ArrayList<Integer> featureNlist=new ArrayList<Integer>();
 	ArrayList<Integer> N=new ArrayList<Integer>();
 	String name=null;
+	Integer number=null;
 	try {
 	    BufferedReader br = new BufferedReader(new FileReader(filepath));
 	    String line=null;
@@ -108,9 +112,15 @@ public class CategoryParser {
 		    continue;
 		else if (line.startsWith("name:"))
 		    name=line.substring(5).trim();
+		else if (line.startsWith("number:"))
+		    number=Integer.parseInt(line.substring(7).trim());
 		else if (line.startsWith("gold:")) {
 		    String gold = line.substring(5).trim();
 		    String a[] = gold.split("=");
+		    if (a.length<2) {
+			System.err.println("Error parsing gold standard for line:" + line);
+			System.exit(1);			
+		    }
 		    Integer mim = Integer.parseInt(a[0].trim());
 		    goldstandard.put(mim,a[1].trim());
 		} else if (line.startsWith("hasGermlineMutationIn:")) {
@@ -137,6 +147,9 @@ public class CategoryParser {
 		    String hp = line.substring(19).trim();
 		    Integer hpo=getHPcode(hp);
 		    optionallist.add(hpo);
+		} else {
+		    System.err.println("Error in file:" + filepath + "\n\t at line:"+ line);
+		    System.exit(1);
 		}
 	    }
 	    br.close();
@@ -150,6 +163,8 @@ public class CategoryParser {
 	    dc.setOptionalList(optionallist);
 	if (featureNlist.size()>0)
 	    dc.setFeatureN(featureNlist,N);
+	if (number != null)
+	    dc.setNumber(number);
 	this.categorylist.add(dc);
 	    
     }

@@ -1,0 +1,40 @@
+name:BrachydactylyGroup
+//Brachydactylies (with or without extraskeletal manifestations)
+
+gold:112500 = Brachydactyly type A1
+gold:112600 = Brachydactyly type A2
+gold:112700 = Brachydactyly type A3
+gold:113000 = Brachydactyly type B
+gold:611377 = Brachydactyly type B2
+gold:113100 = Brachydactyly type C
+gold:113200 = Brachydactyly type D
+gold:113300 = Brachydactyly type E
+gold:600430 = Brachydactyly-mental retardation syndrome
+gold:112410 = Brachydactyly-hypertension syndrome (Bilginturian)
+gold:106995 = Brachydactyly with anonychia (Cooks syndrome)
+gold:164280 = Microcephaly-oculo-digito-esophagealduodenal syndrome (Feingold syndrome)
+gold:140000 = Hand-foot-genital syndrome
+gold:186550 = Brachydactyly with elbow dysplasia (Liebenberg syndrome)
+gold:245150 = Keutel syndrome
+gold:103580 = Albright hereditary osteodystrophy (AHO)
+gold:180849 = Rubinstein-Taybi syndrome
+gold:302380 = Catel-Manzke syndrome
+gold:605282 = Brachydactyly, Temtamy type
+gold:112450 = Christian type brachydactyly
+gold:135900 = Coffin-Siris syndrome
+gold:301940 = Mononen type brachydactyly
+gold:173800 = Poland anomaly
+
+//[112500, 112600, 112700, 113000, 611377, 113100, 113200, 113300, 600430, 112410, 106995, 164280, 140000, 186550, 245150, 103580, 180849, 302380, 605282, 112450, 135900, 301940, 173800]
+
+// #hasGermlineMutationIn IHH, BMPR1B,  BMP2, GDF5, ROR2, NOG, HOXD13, PTHLH, HDAC4, PIGV, SOX9, MYCN, HOXA13, MGP, GNAS1, CREBBP, EP300
+//Brachydactyly (HP:0001156)
+
+// ANDREAS
+// Short fingers (HP:0009381)
+
+// HP:0011927 ! Short digit
+// HP:0005916 ! Abnormal metacarpal morphology
+
+hasFeature:HP_0011927
+

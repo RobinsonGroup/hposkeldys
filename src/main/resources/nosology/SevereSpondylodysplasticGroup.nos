@@ -1,8 +1,9 @@
 name:SevereSpondylodysplasticGroup
+number:14
 //Severe Spondylodysplastic Group
 
 gold:200600 = Achondrogenesis type 1A (ACG1A)
-gold2:69250 = Schneckenbecken dysplasia
+gold:69250 = Schneckenbecken dysplasia
 gold:250220 = Spondylometaphyseal dysplasia, Sedaghatian type
 gold:258480 = Opsismodysplasia
 

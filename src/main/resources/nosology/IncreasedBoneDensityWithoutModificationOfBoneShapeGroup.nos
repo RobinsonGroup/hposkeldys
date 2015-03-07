@@ -31,5 +31,5 @@ gold:600329 = Osteopetrosis with infantile neuroaxonal dysplasia
 // NOT Abnormality of the metaphyses HP_0000944
 
 hasFeature:HP_0011001
-hasNotFeature:HP_0000940
-hasNotFeature:HP_0000944
+notHasFeature:HP_0000940
+notHasFeature:HP_0000944

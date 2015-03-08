@@ -1,0 +1,29 @@
+name:VertebralDysostosisGroup
+//Dysostoses with predominant vertebral with and without costal involvement
+number:35
+
+gold:176450 = Currarino triad
+gold:277300 = Spondylocostal dysostosis type 1 (SCD1)
+gold:608681 = Spondylocostal dysostosis type 2 (SCD2)
+gold:609813 = Spondylocostal dysostosis type 3 (SCD3)
+gold:613686 = Spondylocostal dysostosis type 4 (SCD4)
+//?? Spondylothoracic dysostosis  
+gold:118100 = Klippel-Feil anomaly with laryngeal malformation
+gold:117650 = Cerebro-costo-mandibular syndrome (rib gap syndrome)
+gold:611209 = Cerebro-costo-mandibular-like syndrome with vertebral defects
+gold:608022 =  Diaphanospondylodysostosis
+
+//[176450, 277300, 608681, 609813, 613686, 118100, 117650, 611209, 608022]
+
+// #hasGermlineMutationIn HLXB9, DLL3, MESP2, LFNG, HES7, GDF6, COG1, BMPER
+// HPO_abnormality_of_the_vertebrae ="HP_0003468";
+
+// ANDREAS
+// Abnormal vertebral segmentation and fusion (HP:0005640)
+// Abnormality of the ribs (HP:0000772)
+
+// PREV:
+// #hasFeature HP_0003468
+//UNION(#hasFeature HP_0000772 | #hasFeature HP_0005640)
+
+hasFeature:HP_0005640

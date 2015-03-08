@@ -1,0 +1,19 @@
+name:NeonatalOsteoscleroticDysplasiaGroup
+//Neonatal Osteosclerotic Dysplasia Group
+number:22
+
+gold:215045 = Blomstrand dysplasia
+gold:602398 = Desmosterolosis
+gold:114000 = Caffey disease (including infantile and attenuated forms)
+gold:259775 = Raine dysplasia (lethal and non-lethal forms)
+
+//[215045, 602398, 114000, 259775]
+
+// #hasGermlineMutationIn PTHR1, DHCR24, COL1A1, FAM20C
+// hasEarlyOnsetFeature increased_bone_mineral_density (HP_0011001) 
+
+//#hasEarlyOnsetFeature HP_0011001
+
+
+hasFeature:HP_0011001
+

@@ -1,0 +1,19 @@
+name:CleidocranialDysplasiaGroup
+//Cleidocranial dysplasia and isolated cranial ossification defects group
+number:32
+
+gold:119600 = Cleidocranial dysplasia
+gold:603116 = CDAGS syndrome (craniosynostosis, delayed fontanel closure, parietal foramina, imperforate a.u., genital anomalies, skin eruption)
+gold:216340 = Yunis–Varon dysplasia
+gold:168500 = Parietal foramina (isolated)
+
+//[119600, 603116, 216340, 168500]
+
+// #hasGermlineMutationIn RUNX2, ALX4, MSX2
+// HPO_aplasia_hypoplasia_of_the_clavicle = "HP_0006710" AND HPO_large_fontanelles = "HP_0000239";
+// OR
+// HPO_skull_defect = "HP_0001362";
+
+
+hasFeature:HP_0000239
+

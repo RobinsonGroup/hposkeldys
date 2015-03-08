@@ -1,5 +1,6 @@
 name:OsteogenesisImperfecta
 //Osteogenesis imperfecta and decreased bone density group
+number:25
 
 gold:166200 = Osteogenesis imperfecta, non-deforming form (OI type 1)
 gold:166210 = Osteogenesis imperfecta, perinatal lethal form (OI type 2)

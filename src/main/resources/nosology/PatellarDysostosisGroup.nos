@@ -1,0 +1,23 @@
+name:PatellarDysostosisGroup
+//Patellar Dysostosis Group
+number:36
+
+gold:147891 = Ischiopatellar dysplasia (small patella syndrome)
+gold:161200 = Nail-patella syndrome
+gold:606170 = Genitopatellar syndrome
+gold:224690 = Ear-patella-short stature syndrome (Meier-Gorlin)
+
+//[147891, 161200, 606170, 224690]
+
+// #hasGermlineMutationIn TBX4, PITX1, LMX1B
+// hasFeature aplasia_hypoplasia_of_the_patella (HP:0006498)
+// hasFeature short stature (needed?) (HP:0004322)
+
+// #hasFeature HP_0006498
+// #hasFeature HP_0004322
+
+// OMIM:147891 has only the first 2
+
+hasFeature:HP_0006498
+hasFeature:HP_0004322
+

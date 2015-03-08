@@ -13,21 +13,14 @@ gold:602271 = SMD with retinal degeneration, axial type
 
 //[271550, 184260, 184255, 184253, 608940, 602271]
 
-// #hasGermlineMutationIn ACP5
-// hasFeature Short stature (HP:0004322)
-// hasFeature Platyspondyly (HP:0000926)  (consider abnormal form of vertebral bodies, the parent term of platyspondyly).
-// Better Limb undergrowth or short limb
-
-
-
-//#hasFeature HP_0004322
-//#hasFeature HP_0009826
-//#hasFeature HP_0000944
-//#hasFeature HP_0002644
-//#hasFeature HP_0003312
 
 // Triad. platyspondyly(HP_0000926), short long bones (HP:0003026), and metaphyseal abnormality (HP:0000944)
 
-hasFeature:HP_0000926
-hasFeature:HP_0003026
-hasFeature:HP_0000944
+// Abnormal form of the vertebral bodies  (HP:0003312)
+// At least two metaphyseal items
+// Not epiphyseal abnormality, HP:0005930
+
+hasFeatureN(2):HP_0000944
+hasFeature:HP_0003312
+notHasFeature:HP_0005930
+

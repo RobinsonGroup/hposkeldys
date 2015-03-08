@@ -164,19 +164,23 @@ public class DiseaseCategory {
 	int tot = goldstandard.size();
 	out.write(String.format("I got %d/%d (%.1f%%) of the gold standard diseases.\n",n_gc_identified,tot,((double)100*n_gc_identified/tot)));
 	if (n_gc_identified < tot) {
+	    int i=0;
 	    for (Integer id : foundGS.keySet()) {
 		if (foundGS.get(id))
 		    continue;
 		else {
 		    String mimname = goldstandard.get(id);
 		    if (mimname==null) mimname="?";
+		    i++;
 		    String ret = String.format("MIM:%06d %s",id,mimname);
-		    out.write("Did not found disease " + ret + "\n");
+		    out.write(i + ". Did not found disease " + ret + "\n");
 
 		}
-		}
+	    }
+	    i=0;
 	    for (DiseaseAnnotation notda:this.notFound) {
-		out.write("Did not find:" + notda + "\n");
+		i++;
+		out.write(i + ". Did not find:" + notda + "\n");
 	    }
 	}
 	if (newprediction.size()==0) {

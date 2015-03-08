@@ -1,5 +1,6 @@
 name:DysostosisMultiplexGroup
 //Lysosomal storage diseases with skeletal involvement (dysostosis multiplex group)
+number:27
 
 gold:607014 = Mucopolysaccharidosis type 1H/1S 
 gold:309900 = Mucopolysaccharidosis type 2 

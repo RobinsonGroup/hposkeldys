@@ -1,0 +1,24 @@
+name:CraniofacialDysostosisGroup
+//Craniofacial Dysostosis Group
+number:34
+
+gold:154500 = Mandibulo-facial dysostosis (Treacher Collins, Franceschetti-Klein)
+gold:311200 = Oral-facial-digital syndrome type I 
+gold:193530 = Weyer acrofacial (acrodental) dysostosis
+gold:612651 = Endocrine-cerebro-osteodysplasia (ECO)
+gold:304110 = Craniofrontonasal syndrome 
+gold:136760 = Frontonasal dysplasia, type 1 
+gold:613451 = Frontonasal dysplasia, type 2  
+gold:613456 = Frontonasal dysplasia, type 3 
+gold:164210 = Hemifacial microsomia 
+gold:263750 = Miller syndrome (postaxial acrofacial dysostosis) 
+gold:154400 = Acrofacial dysostosis, Nager type
+gold:201170 = Acrofacial dysostosis, Rodriguez type 
+
+//[154500, 311200, 193530, 612651, 304110, 136760, 613451, 613456, 164210, 263750, 154400, 201170]
+
+//#hasGermlineMutationIn TCOF1, POLR1D, POLR1C, CXORF5, EVC1, ICK, EFNB1, ALX3, ALX4,  ALX1, DHODH
+// HPO_craniosynostosis = "HP_0001363";
+// HPO_abnormality_of_the_face = "HP_0000271";
+
+hasFeature:HP_0000271

@@ -1,0 +1,38 @@
+name:OvergrowthGroup
+//Overgrowth syndromes with skeletal involvement
+number:30
+
+gold:277590 = Weaver syndrome
+gold:117550 = Sotos syndrome 
+gold:602535 = Marshall–Smith syndrome 
+gold:176920 = Proteus syndrome
+gold:154700 = Marfan syndrome
+gold:121050 = Congenital contractural arachnodactyly 
+gold:609192 = Loeys–Dietz syndrome types 1A
+gold:610168 = Loeys–Dietz syndrome types 2A 
+gold:608967 = Loeys–Dietz syndrome types 1B  
+gold:610380 = Loeys–Dietz syndrome types 2B 
+
+//[277590, 117550, 602535, 176920, 154700, 121050, 609192, 610168, 608967, 610380]
+
+// #hasGermlineMutationIn NSD1, NFIX, FBN1, FBN2, TGFBR1, TGFBR2, NPPC
+// HPO_abnormality_of_the_skeletal_system = "HP_0000924" AND HPO_tall_stature = "HP_0000098";
+// OR
+// HPO_hemihypertrophy = "HP_0001528";
+// OR
+// HPO_arachnodactyly = "HP_0001166"
+// OR
+// HPO_disproportionate_tall_stature = "HP_0001519";
+
+//#hasFeature HP_0000924
+//#hasFeature HP_0002564
+//#hasFeature HP_0002650
+//#hasFeature HP_0000098
+//#hasFeature HP_0001382
+//#hasFeature HP_0000174
+
+
+
+hasFeature:HP_0000924
+
+ 

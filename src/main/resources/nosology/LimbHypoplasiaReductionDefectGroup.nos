@@ -1,0 +1,49 @@
+name:LimbHypoplasiaReductionDefectGroup
+//Limb hypoplasia—reduction defects group
+number:38
+
+gold:181450 = Ulnar-mammary syndrome
+gold:122470 = de Lange syndrome
+gold:227650 = Fanconi anemia
+gold:274000 = Thrombocytopenia-absent radius (TAR)
+gold:142900 = Holt–Oram syndrome
+gold:607323 = Okihiro syndrome (Duane-radial ray anomaly)
+gold:260660 = Cousin syndrome
+gold:268300 = Roberts syndrome
+gold:119100 = Split-hand-foot malformation with long bone deficiency (SHFLD1)
+gold:610685 = Split-hand-foot malformation with long bone deficiency (SHFLD2)
+gold:612576 = Split-hand-foot malformation with long bone deficiency (SHFLD3)
+gold:275220 = Tibial hemimelia
+gold:188770 = Tibial hemimelia-polysyndactylytriphalangeal thumb
+gold:200500 = Acheiropodia
+gold:301090 = Tetra-amelia AD
+gold:273395 = Tetra-amelia AR
+gold:106260 = Ankyloblepharon-ectodermal dysplasia-cleft lip/palate (AEC)
+gold:604292 = Ectrodactyly-ectodermal dysplasia cleft-palate syndrome Type 3 (EEC3)
+gold:129900 = Ectrodactyly-ectodermal dysplasia cleft-palate syndrome type 1 (EEC1)
+gold:225280 = Ectrodactyly-ectodermal dysplasiamacular dystrophy syndrome (EEM)
+gold:603273 = Limb-mammary syndrome (including ADULT syndrome)
+gold:605289 = Split hand-foot malformation, isolated form, type 4 (SHFM4)
+gold:183600 = Split hand-foot malformation, isolated form, type 1 (SHFM1)
+gold:313350 = Split hand-foot Malformation, isolated form, type 2 (SHFM2)
+gold:600095 = Split hand-foot malformation, isolated form, type 3 (SHFM3)
+gold:606708 = Split hand-foot malformation, isolated form, type 5 (SHFM5)
+gold:276820 = Al-Awadi Raas–Rothschild limb-pelvis hypoplasia–aplasia
+gold:228930 = Fuhrmann syndrome
+gold:266280 = RAPADILINO syndrome
+gold:100300 = Adams–Oliver syndrome
+gold:134780 = Femoral hypoplasia-unusual face syndrome (FHUFS)
+gold:228200 = Femur-fibula-ulna syndrome (FFU)
+gold:103300 = Hanhart syndrome (hypoglossia–hypodactylia)
+gold:169550 = Scapulo-iliac dysplasia (Kosenow)
+
+//[181450, 122470, 227650, 274000, 142900, 607323, 260660, 268300, 
+//119100, 610685, 612576, 275220, 188770, 200500, 301090, 273395, 106260, 
+//604292, 129900, 225280, 603273, 605289, 183600, 313350, 600095, 606708, 276820, 228930, 266280, 100300, 134780, 228200, 103300, 169550]
+
+// #hasGermlineMutationIn TBX3, NIPBL, THPO, TBX5, SALL4, TBX15, ESCO2, LMBR1, WNT3, P63, CDH3, FBXW4, WNT7A, RECQL4
+// HPO_phocomelia = "HP_0009829"; OR
+// HPO_absent_radius = "HP_0003974";
+// TODO Maybe we also need to add ectrodactyly
+
+hasFeature:HP_0001159

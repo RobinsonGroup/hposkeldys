@@ -16,6 +16,9 @@ number:15
 //105835: ?? doesnotseem to match
 //266920: Short fingers 
 
+// pmid:19396027 The acromelic dysplasia group includes three rare disorders: 
+//Weill-Marchesani syndrome (WMS), Geleophysic dysplasia (GD) and Acromicric dysplasia (AD) all characterized by short stature, short hands and stiff joints.
+
 gold:190350 = Trichorhinophalangeal dysplasia type 1
 gold:190351 = Trichorhinophalangeal dysplasia type 3
 gold:150230 = Trichorhinophalangeal dysplasia type 2 (Langer–Giedion)

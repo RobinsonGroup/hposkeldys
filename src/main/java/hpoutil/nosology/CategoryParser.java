@@ -52,17 +52,25 @@ public class CategoryParser {
 	    "SlenderBonesGroup.nos", /* #19 */
 	    "DysplasiasWithMultipleJointDislocationsGroup.nos", /* #20 */
 	    "ChondrodysplasiaPunctataGroup.nos", /* #21 */
-	    "IncreasedBoneDensityWithoutModificationOfBoneShapeGroup.nos", /* #22 */
-	    "IncreasedBoneDensityWithMetaphysealDiaphysealInvolvementGroup.nos", /* #23 */
-	    "OsteogenesisImperfectaGroup.nos", /* #24 */
-
+	    "NeonatalOsteoscleroticDysplasiaGroup.nos", /* 22 */
+	    "IncreasedBoneDensityWithoutModificationOfBoneShapeGroup.nos", /* #23 */
+	    "IncreasedBoneDensityWithMetaphysealDiaphysealInvolvementGroup.nos", /* #24 */
+	    "OsteogenesisImperfectaGroup.nos", /* #25 */
+	    "AbnormalMineralizationGroup.nos", /* 26 */
 	    "DysostosisMultiplexGroup.nos", /* 27 */
-	    "CraniosynostosisGroup.nos",
-	    "OsteolysisGroup.nos",
-	    "BrachydactylyGroup.nos",
-	    "GeneticInflammatoryRheumatoidLikeOsteoarthropathiesGroup.nos", /* #31 */
+	    "OsteolysisGroup.nos", /* 28 */
+	    "DisorganizedDevelopmentGroup.nos", /* 29 */
+	    "OvergrowthGroup.nos", /* 30 */
+	     "GeneticInflammatoryRheumatoidLikeOsteoarthropathiesGroup.nos", /* #31 */
+	    "CleidocranialDysplasiaGroup.nos", /* 32 */
+	    "CraniosynostosisGroup.nos", /* 33 */
+	    "CraniofacialDysostosisGroup.nos", /* 34 */
+	    "VertebralDysostosisGroup.nos", /* 35 */
+	    "PatellarDysostosisGroup.nos",  /* 36 */	   
+	    "BrachydactylyGroup.nos", /* 37 */
+	    "LimbHypoplasiaReductionDefectGroup.nos", /* 38 */
 	    "PolydactylySyndactylyTriphalangismGroup.nos", /* # 39 */
-
+	    "DefectsInJointFormationAndSynostosesGroup.nos", /* 40 */
 	};
 	ArrayList<String> ret = new ArrayList<String>();
 	for (String fname:f) {

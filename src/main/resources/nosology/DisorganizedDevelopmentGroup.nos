@@ -1,0 +1,34 @@
+name:DisorganizedDevelopmentGroup
+//Disorganized development of skeletal components group
+number:29
+
+
+
+gold:133700 = Multiple cartilaginous exostoses 1
+gold:133701 = Multiple cartilaginous exostoses 2
+gold:600209 = Multiple cartilaginous exostoses 3
+gold:118400 = Cherubism
+gold:174800 = Fibrous dysplasia, polyostotic form
+gold:166350 = Progressive osseous heteroplasia
+gold:166260 = Gnathodiaphyseal dysplasia
+gold:156250 = Metachondromatosis
+gold:166250 = Osteoglophonic dysplasia
+gold:135100 = Fibrodysplasia ossificans progressiva (FOP)
+gold:162200 = Neurofibromatosis type 1 (NF1)
+gold:127820 = Carpotarsal osteochondromatosis
+gold:266270 = Cherubism with gingival fibromatosis (Ramon syndrome)
+gold:127800 = Dysplasia epiphysealis hemimelica (Trevor) 
+gold:166000 = Enchondromatosis (Ollier) & Enchondromatosis with hemangiomata (Maffucci)
+
+//[133700, 133701, 600209, 118400, 174800, 166350, 166260, 156250, 166250, 135100, 162200, 127820, 266270, 127800, 166000]
+
+// #hasGermlineMutationIn EXT1, EXT2, SH3BP2, GNAS1, TMEM16E, PTPN11, FGFR1, ACVR1, NF1
+// HPO_exostoses = "HP_0100777";
+
+// HP:0100777 ! Exostoses OR
+// Some: HP:0010614 ! Fibroma AND HP:0010674 ! Abnormality of the curvature of the vertebral column
+
+
+
+hasFeature:HP_0100777
+hasFeature:HP_0010674

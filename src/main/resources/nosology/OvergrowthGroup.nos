@@ -19,9 +19,6 @@ gold:610380 = Loeys–Dietz syndrome types 2B
 // HPO_abnormality_of_the_skeletal_system = "HP_0000924" AND HPO_tall_stature = "HP_0000098";
 // OR
 // HPO_hemihypertrophy = "HP_0001528";
-// OR
-// HPO_arachnodactyly = "HP_0001166"
-// OR
 // HPO_disproportionate_tall_stature = "HP_0001519";
 
 //#hasFeature HP_0000924
@@ -34,5 +31,3 @@ gold:610380 = Loeys–Dietz syndrome types 2B
 
 
 hasFeature:HP_0000924
-
- 

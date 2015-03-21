@@ -6,27 +6,31 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.*;
 
-
+/**
+ * Parse one of the 40 *.nos files containing the definitions
+ * for the sekeltal nosology.
+ * @author Peter Robinson
+ * @version 0.2 (20 March 2015)
+ */
 public class CategoryParser {
 
     private final static String nosopath="src/main/resources/nosology";
-
+    /** List of the 40 skeletal nosology categories */
     private ArrayList<DiseaseCategory> categorylist=null;
-
-   
+    /** @return list of the 40 skeletal nosology categories */   
     public ArrayList<DiseaseCategory> getDiseaseCategoryList() { return this.categorylist; }
 
     public CategoryParser() {
 	ArrayList<String> paths=getOrderedFilePaths();
-
 	this.categorylist = new ArrayList<DiseaseCategory> ();
 	for (String p : paths) {   
 	    parseCategory(p);
 	}
     }
 
-
-
+    /**
+     * Causes the 40 categories to be parsed in the same order as in the publication.
+     */
     private ArrayList<String> getOrderedFilePaths() {
 	String dir="src/main/resources/nosology";
 	String f[] = {
@@ -40,13 +44,12 @@ public class CategoryParser {
 	    "TRPV4_Group.nos",  /* #8 */
 	    "ShortRibsDysplasia_Group.nos", /* #9 */
 	    "MEDandPseudoachondroplasia_Group.nos", /* #10 */
-	    // Starting here we need to change the order to make things more specific! */
-	    "SpondylometaphysealDysplasiaGroup.nos", /* #12 */
-	    "SevereSpondylodysplasticGroup.nos", /* 14 */
 	    "MetaphysealDysplasia_Group.nos", /* #11 */
+	    "SpondylometaphysealDysplasiaGroup.nos", /* #12 */
 	    "SpondyloEpiMetaphysealDysplasiaGroup.nos", /* 13 */
+	    "SevereSpondylodysplasticGroup.nos", /* 14 */
+	    "AcromelicDysplasiaGroup.nos", /* #15 */	  
 	    "AcromesomelicDysplasiaGroup.nos", /* #16 */
-	    "AcromelicDysplasiaGroup.nos", /* #15 */
 	    "MesomelicAndRhizomesomelicDysplasiaGroup.nos", /* 17 */
 	    "BentBonesGroup.nos", /* #18 */
 	    "SlenderBonesGroup.nos", /* #19 */
@@ -108,6 +111,7 @@ public class CategoryParser {
 	ArrayList<Integer> optionallist=new ArrayList<Integer>();
 	ArrayList<Integer> featureNlist=new ArrayList<Integer>();
 	ArrayList<Integer> N=new ArrayList<Integer>();
+	Integer neonatal=null;
 	String name=null;
 	Integer number=null;
 	try {
@@ -151,6 +155,10 @@ public class CategoryParser {
 		    Integer hpo=getHPcode(line);
 		    featureNlist.add(hpo);
 		    N.add(n);
+		} else if (line.startsWith("hasNeonatalFeature:")) {
+		    line=line.substring(19).trim();
+		    Integer hpo=getHPcode(line);
+		    neonatal=hpo;
 		} else if (line.startsWith("hasOptionalFeature:")) {
 		    String hp = line.substring(19).trim();
 		    Integer hpo=getHPcode(hp);
@@ -173,6 +181,8 @@ public class CategoryParser {
 	    dc.setFeatureN(featureNlist,N);
 	if (number != null)
 	    dc.setNumber(number);
+	if (neonatal != null)
+	    dc.setNeonatalFeature(neonatal);
 	this.categorylist.add(dc);
 	    
     }

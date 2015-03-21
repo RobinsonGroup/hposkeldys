@@ -37,6 +37,7 @@ public class DiseaseCategory {
     /** Minimum number of times {@link #featureNlist} must be present
      Note: Order of arraylist matches.*/
     private ArrayList<Integer> N;
+    private Integer neonatalFeature=null;
 
     HashMap<Integer,String> goldstandard=null;
     /** Count of diseases we evaluated but found not to be members of this category */
@@ -79,6 +80,10 @@ public class DiseaseCategory {
 	    l.add(id);
 	}
 	return l;
+    }
+
+    public void setNeonatalFeature(Integer hpo) {
+	this.neonatalFeature=hpo;
     }
 
 
@@ -247,6 +252,35 @@ public class DiseaseCategory {
 
 
     /**
+     * This function is used to test whether a disease has a feature with neonatal onset.
+     * Note that we include "Congenital onset"
+     * @param disease The disease to be tested
+     * @param feature an HPO term (represented as Integer) that should be present with neonatal onset
+     */
+    private boolean hasNeonatalFeature(DiseaseAnnotation disease, Integer feature) {
+
+	ArrayList<Integer> neonatalAnnotations = disease.getNeonatalAnnotations();
+	ArrayList<Integer> congenitalAnnotations = disease.getCongenitalAnnotations();
+	if (neonatalAnnotations==null)
+	    neonatalAnnotations=congenitalAnnotations;
+	else
+	    neonatalAnnotations.addAll(congenitalAnnotations);
+	for (Integer neo : neonatalAnnotations) {
+	    try{
+		if (DiseaseCategory.hpo.isAncestorOf(feature,neo)){
+		    return true;
+		} 
+	    } catch (IllegalArgumentException e) {
+		log.error(String.format("Could not find HP:%07d for disease %s",neo,disease.getDiseaseName()));
+		continue;
+	    }
+	}
+	return false; /** did not find a neonatal annotation. */
+    }
+
+
+
+    /**
      * Some of the categories are defined based on disease genes. In this case, a disease must be
      * associated with at least one of the disease genes to be considered a member of the
      * category (some other conditions may apply).
@@ -315,6 +349,14 @@ public class DiseaseCategory {
 		return false;
 	    }
 	 }
+	// Check for neonatalfeatures
+	if (this.neonatalFeature!=null) {
+	    boolean OK=hasNeonatalFeature(disease,this.neonatalFeature);
+	    if (! OK ) 
+		return false;
+	}
+
+
 	// Now check for constraints that a disease have at least N features descending from some term.
 
 	if (featureNlist!=null && featureNlist.size()>0) {

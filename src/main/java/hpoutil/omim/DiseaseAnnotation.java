@@ -16,7 +16,7 @@ import java.util.Map;
  * the disease name (e.g., Smith Syndrome), as well as the
  * individual HPO annotations and any negations.
  * @author peter.robinson@charite.de, Sebastian Bauer
- * @version 0.2 February 21, 2015
+ * @version 0.3 March 21, 2015
  */
 public class DiseaseAnnotation {
     /** ID heading column number for annotation file (used only for the parse) */
@@ -27,8 +27,11 @@ public class DiseaseAnnotation {
     private static final String COL_NEGATION = "NEG";
     /** HPO (annotation) heading column number for annotation file (used only for the parse) */
     private static final String COL_HPO = "HPO";
-    /** AO heading column number for annotation file (used only for the parse) */
+    /** Age of ontset name ("Age of Onset Name") heading column number for annotation file (used only for the parse) */
     private static final String COL_AO = "AO";
+  
+
+
     /** Number of columns for annotation file (used only for the parse) */
     private static final String NO_COLUMNS = "NO_COLUMNS";
 
@@ -56,7 +59,8 @@ public class DiseaseAnnotation {
 	this.parseDiseaseFile(filename);
     }
 
-
+    /**
+     * Return a list of items joined by a comma */
     private String join(ArrayList<String> al) {
 	if (al==null || al.size()==0)
 	    return "-";
@@ -171,6 +175,29 @@ public class DiseaseAnnotation {
 	return lst;
     }
 
+    /**
+     * @return List of annotations that have neonatal onset
+     */
+    public ArrayList<Integer>  getNeonatalAnnotations() {
+	ArrayList<Integer> lst = new ArrayList<Integer>();
+	for (AnnotationItem item : this.annotationItems) {
+	    if (item.is_neonatal())
+		lst.add(item.getHPOid());
+	}
+	return lst;
+    }
+
+     /**
+     * @return List of annotations that have neonatal onset
+     */
+    public ArrayList<Integer>  getCongenitalAnnotations() {
+	ArrayList<Integer> lst = new ArrayList<Integer>();
+	for (AnnotationItem item : this.annotationItems) {
+	    if (item.is_congenital())
+		lst.add(item.getHPOid());
+	}
+	return lst;
+    }
 
     
     /**

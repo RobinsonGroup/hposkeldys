@@ -1,5 +1,6 @@
 name:IncreasedBoneDensityWithoutModificationOfBoneShapeGroup
 //Increased Bone Density (without modification of bone shape) Group
+number:23
 
 gold:259700 = Osteopetrosis, severe neonatal or infantile forms (OPTB1)
 gold:611490 = Osteopetrosis, severe neonatal or infantile forms (OPTB4)

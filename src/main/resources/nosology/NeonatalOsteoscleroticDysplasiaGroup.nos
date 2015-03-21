@@ -15,5 +15,5 @@ gold:259775 = Raine dysplasia (lethal and non-lethal forms)
 //#hasEarlyOnsetFeature HP_0011001
 
 
-hasFeature:HP_0011001
+hasNeonatalFeature:HP_0011001
 

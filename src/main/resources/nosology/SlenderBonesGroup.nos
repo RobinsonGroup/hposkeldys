@@ -8,7 +8,8 @@ gold:244460 = Kenny–Caffey dysplasia type 1
 gold:127000 = Kenny–Caffey dysplasia type 2
 gold:210710 = Microcephalic osteodysplastic primordial dwarfism type 1/3 (MOPD1)
 gold:210720 = Microcephalic osteodysplastic primordial dwarfism type 2 (MOPD2; Majewski type)
-gold:300290 = IMAGE syndrome (intrauterine growth retardation, metaphyseal dysplasia, adrenal hypoplasia, and genital anomalies)
+//gold:300290 = IMAGE syndrome (intrauterine growth retardation, metaphyseal dysplasia, adrenal hypoplasia, and genital anomalies)
+gold:614732 = IMAGE syndrome (moved from 300290)
 gold:602361 = Osteocraniostenosis
 gold:234100 = Hallermann–Streiff syndrome
 

@@ -28,7 +28,10 @@ import hpoutil.ontology.*;
 import hpoutil.omim.*;
 import hpoutil.nosology.*;
 
-
+/**
+ * An application that is intended to classify the skeletal dysplasias
+ * according to phenotype and disease gene
+ */
 public class HPOUtil {
 
     private static Logger log = Logger.getLogger(HPOUtil.class.getName());
@@ -38,14 +41,13 @@ public class HPOUtil {
     private String pathToHPOAnnot=null;
     /** Key: a MIM ID, value: list of OMIM diseases */
     private HashMap<Integer,List<OMIMDisease> > omimmap=null;
+    /** Key a MIM ID, value: a Disease annotation (derived from the HPO annotation data). */
     private HashMap<Integer,DiseaseAnnotation> diseasemap=null;
+    /** List of the 40 skeletal dysplasa categories */
     private ArrayList<DiseaseCategory> categorylist=null;
-
-    private ArrayList<DiseaseCategory> category_list=null;
-
     /** A representation of the HPO Ontology */
     private HPO hpo=null;
-
+    
     public static void main(String args[]) {
 	HPOUtil hpoutil = new HPOUtil(args);
 	hpoutil.parseHPOFile();
@@ -74,10 +76,10 @@ public class HPOUtil {
 	for (DiseaseCategory cat:categorylist) {
 	    System.out.println("Testing membership in category: " + cat.getName());
 	    cat.findMembers(this.diseasemap);
-	    ArrayList<Integer> lst = cat.getMemberList();
+	    /*ArrayList<Integer> lst = cat.getMemberList();
 	    for (Integer id:lst) {
-		this.diseasemap.remove(id); /* Once assigned, we can remove the disease! */
-	    }
+		this.diseasemap.remove(id);  Once assigned, we can remove the disease! 
+	    }*/
 	}
     }
 

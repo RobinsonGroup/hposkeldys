@@ -94,7 +94,7 @@ public class HPOUtil {
 	Path path = FileSystems.getDefault().getPath(".", fname);
 	try {
 	    BufferedWriter writer = Files.newBufferedWriter(path, charset);
-	    //writer.write(s, 0, s.length());
+	    DiseaseCategory.setCategoryList(this.categorylist);
 	    for (DiseaseCategory cat:this.categorylist) {
 		//System.out.println("Testing membership in category: " + cat.getName());
 		cat.printOutput(writer);

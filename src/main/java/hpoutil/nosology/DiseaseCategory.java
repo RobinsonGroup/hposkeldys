@@ -38,8 +38,8 @@ public class DiseaseCategory {
      Note: Order of arraylist matches.*/
     private ArrayList<Integer> N;
     private Integer neonatalFeature=null;
-
-    HashMap<Integer,String> goldstandard=null;
+    /** Key: integer representation of the OMIM id; Value: name of the disease */
+    private HashMap<Integer,String> goldstandard=null;
     /** Count of diseases we evaluated but found not to be members of this category */
     int notMemberCount=0;
 
@@ -143,6 +143,20 @@ public class DiseaseCategory {
     }
 
 
+    // private String getDiseaseCategory
+    public static  ArrayList<DiseaseCategory> categorylist=null;
+    public static void setCategoryList( ArrayList<DiseaseCategory> list) {
+	DiseaseCategory.categorylist=list;
+    }
+
+    private String getCategory(Integer disease) {
+	for (DiseaseCategory dc : DiseaseCategory.categorylist) {
+	    if (dc.goldstandard.containsKey(disease)) {
+		return  String.format("%d->%s", dc.categorynumber,dc.categoryname);
+   	    }
+	}
+	return "no other category";
+    }
 
     public void printOutput(Writer out) throws IOException {
 	ArrayList<String> newprediction = new ArrayList<String>();
@@ -163,7 +177,9 @@ public class DiseaseCategory {
 		out.write(n_gc_identified + ") " + da.toString() + "[+]\n");
 		foundGS.put(id,true);
 	    } else {
-		newprediction.add(da.toString());
+		String cat=getCategory(id);
+		String dis=String.format("%s %s",da.toString(),cat);
+		newprediction.add(dis);
 	    }
 	}
 	int tot = goldstandard.size();
@@ -327,8 +343,8 @@ public class DiseaseCategory {
 
     public boolean evaluateCandidateDisease(DiseaseAnnotation disease) {
 	boolean verbose=false;
-	if (disease.MIMid().equals(200600))
-	    verbose=true;
+	//if (disease.MIMid().equals(200600))
+	//  verbose=true;
 
 	if (this.diseasegenes != null && this.diseasegenes.size()>0) {
 	    boolean OK = hasDiseaseGene(disease);

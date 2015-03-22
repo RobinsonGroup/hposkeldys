@@ -6,7 +6,7 @@ gold:259700 = Osteopetrosis, severe neonatal or infantile forms (OPTB1)
 gold:611490 = Osteopetrosis, severe neonatal or infantile forms (OPTB4)
 gold:259720 = Osteopetrosis, infantile form, with nervous system involvement (OPTB5)
 gold:259710 = Osteopetrosis, intermediate form, osteoclast-poor (OPTB2)
-gold:612302 = Osteopetrosis, infantile form, osteoclast-poor with immunoglobulin deficiency (OPTB7)
+gold:612301 = Osteopetrosis, infantile form, osteoclast-poor with immunoglobulin deficiency (OPTB7)
 gold:611497 = Osteopetrosis, intermediate form (OPTB6)
 gold:259710 = Osteopetrosis, intermediate form (OPTA2)
 gold:259730 = Osteopetrosis with renal tubular acidosis (OPTB3)
@@ -30,7 +30,11 @@ gold:600329 = Osteopetrosis with infantile neuroaxonal dysplasia
 // hasFeature  HPO_increased_bone_mineral_density = "HP_0011001"
 // add NOT Abnormal diaphysis morphology HP_0000940
 // NOT Abnormality of the metaphyses HP_0000944
+// NOT: short long bone HP:0003026
+// NOT: Bowing of the long bones HP:0006487
 
 hasFeature:HP_0011001
-notHasFeature:HP_0000940
-notHasFeature:HP_0000944
+//notHasFeature:HP_0000940 
+//notHasFeature:HP_0000944
+notHasFeature:HP:0003026
+notHasFeature:HP_0006487

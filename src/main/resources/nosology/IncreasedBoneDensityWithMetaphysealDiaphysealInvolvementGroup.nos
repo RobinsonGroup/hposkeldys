@@ -1,5 +1,6 @@
 name:IncreasedBoneDensityWithMetaphysealDiaphysealInvolvementGroup
 //Increased bone density group with metaphyseal and/or diaphyseal involvement
+number:24
 
 gold:123000 = Craniometaphyseal dysplasia, autosomal dominant type
 gold:131300 = Diaphyseal dysplasia Camurati-Engelmann

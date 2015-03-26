@@ -17,7 +17,7 @@ gold:224690 = Ear-patella-short stature syndrome (Meier-Gorlin)
 // #hasFeature HP_0004322
 
 // OMIM:147891 has only the first 2
+// HP_0003045 Abnormality of the patella
 
-hasFeature:HP_0006498
-hasFeature:HP_0004322
+hasFeatureN(3):HP_0003045
 

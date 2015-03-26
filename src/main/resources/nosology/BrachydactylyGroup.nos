@@ -1,5 +1,6 @@
 name:BrachydactylyGroup
 //Brachydactylies (with or without extraskeletal manifestations)
+number:37
 
 gold:112500 = Brachydactyly type A1
 gold:112600 = Brachydactyly type A2

@@ -19,7 +19,8 @@ gold:602271 = SMD with retinal degeneration, axial type
 // Abnormal form of the vertebral bodies  (HP:0003312)
 // At least two metaphyseal items
 // Not epiphyseal abnormality, HP:0005930
-
+[begin-definitions]
+[definition]
 hasFeatureN(2):HP_0000944
 hasFeature:HP_0003312
 notHasFeature:HP_0005930

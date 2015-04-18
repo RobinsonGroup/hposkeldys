@@ -24,7 +24,8 @@ gold:271630 = Brachyolmia, Toledo type
 // hasFeature Abnormality of the epiphyses - HP_0005930
 // hasFeature Platyspondyly (HP:0000926) 
 
-
+[begin-definitions]
+[definition]
 hasFeature:HP_0005930
 hasOptionalFeature:HP_0000926
 hasOptionalFeature:HP_0100569

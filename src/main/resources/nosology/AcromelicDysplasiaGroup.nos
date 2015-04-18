@@ -36,7 +36,8 @@ gold:266920 = Saldino–Mainzer dysplasia
 // PETER
 // hasOptionalFeatures HP:0010049 (Short metacarpal), HP:0004279(Short palm)
 // HP:0005927 Aplasia/hypoplasia involving bones of the hand
-
+[begin-definitions]
+[definition]
 hasFeature:HP:0005927
 hasOptionalFeature:HP:0010049
 hasOptionalFeature:HP:0004279

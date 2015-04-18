@@ -18,14 +18,11 @@ gold:226960 = Multiple epiphyseal dysplasia with microcephaly and nystagmus (Low
 //:hasFeature irregularEpiphysis HP:0010582
 // hasFeature HP:0010585 small epiphysis
 // HP:0003071 flattened epiphyses
-// Note that to distinguish this from other groups, we add NOT metaphysis HP:0000944 - Abnormality of the metaphyses
+// Note that to distinguish this from other groups, if needed consider add NOT metaphysis HP:0000944 - Abnormality of the metaphyses
 // Abnormality of the epiphyses HP:0005930
 // Not spondyl... Abnormality of the vertebrae HP_0003468
 
-
-//hasFeature:HP_0010582
-//hasOptionalFeature:HP_0010585
-//hasOptionalFeature:HP_0003071
-//notHasFeature:HP_0000944
+[begin-definitions]
+[definition]
 hasFeatureN(3):HP_0005930
 notHasFeature:HP_0003468

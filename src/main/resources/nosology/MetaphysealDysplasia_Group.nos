@@ -18,13 +18,7 @@ gold:137360 = Genochondromatosis (type 1 / type 2)
 // hasFeature Abnormality of the metaphyses HP_0000944  Abnormal metaphysis
 // nothas feature Abnormality of bone mineral density  HP:0004348
 
-// #hasFeature HP_0010585
-// #hasFeature HP_0000924
-// #hasFeature HP_0004322
-// #hasFeature HP_0001288
-// #hasFeature HP_0000234
-
-
-
+[begin-definitions]
+[definition]
 hasFeatureN(2):HP_0000944
 notHasFeature:HP:0004348

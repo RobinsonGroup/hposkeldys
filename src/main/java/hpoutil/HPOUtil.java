@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ArrayList;
 import java.nio.charset.Charset;
@@ -45,6 +46,10 @@ public class HPOUtil {
     private HashMap<Integer,DiseaseAnnotation> diseasemap=null;
     /** List of the 40 skeletal dysplasa categories */
     private ArrayList<DiseaseCategory> categorylist=null;
+    /** Set of all diseases that have been found to date. */
+    private HashSet<Integer> assigned=null;
+
+
     /** A representation of the HPO Ontology */
     private HPO hpo=null;
     
@@ -58,7 +63,8 @@ public class HPOUtil {
     }
 
     public HPOUtil(String args[]) {
-	parseCommandLineArguments(args);	
+	parseCommandLineArguments(args);
+	this.assigned=new HashSet<Integer>();
     }
 
     /**
@@ -77,10 +83,10 @@ public class HPOUtil {
 	for (DiseaseCategory cat:categorylist) {
 	    System.out.println("Testing membership in category: " + cat.getName());
 	    cat.findMembers(this.diseasemap);
-	    /*ArrayList<Integer> lst = cat.getMemberList();
+	    ArrayList<Integer> lst = cat.getMemberList();
 	    for (Integer id:lst) {
-		this.diseasemap.remove(id);  Once assigned, we can remove the disease! 
-	    }*/
+		this.assigned.add(id);  // Once assigned, we can remove the disease! 
+	    }
 	}
     }
 

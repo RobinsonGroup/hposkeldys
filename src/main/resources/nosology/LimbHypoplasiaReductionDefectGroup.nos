@@ -14,7 +14,8 @@ gold:119100 = Split-hand-foot malformation with long bone deficiency (SHFLD1)
 gold:610685 = Split-hand-foot malformation with long bone deficiency (SHFLD2)
 gold:612576 = Split-hand-foot malformation with long bone deficiency (SHFLD3)
 gold:275220 = Tibial hemimelia
-gold:188770 = Tibial hemimelia-polysyndactylytriphalangeal thumb
+gold:188740 = Tibial hemimelia-polysyndactylytriphalangeal thumb
+//188770 MOVED TO 188740 
 gold:200500 = Acheiropodia
 gold:273395 = Tetra-amelia AD
 // Note 301090 moved to 273395 
@@ -54,9 +55,20 @@ gold:169550 = Scapulo-iliac dysplasia (Kosenow)
 //1. Has absent tibia
 hasFeature:HP_0009556
 [definition]
+hasFeature:HP_0009828
+//HP:0009828 is Peromelia
+[definition]
+hasFeature:HP_0003974
+//HP:0003974 is Absent radius
+[definition]
+hasFeature:HP_0009829
+[definition]
+hasFeature:HP:0100257
+// HP:0100257 is Ectrodactly (split hand/foot)
+// HP:0009829 =Phocomelia
 // Revise this
-hasFeatureN(2):HP:0011842
-hasOptionalFeature:HP_0100257
-hasOptionalFeature:HP_0009556
-hasOptionalFeature:HP_0009829
-hasOptionalFeature:HP_0003974
+//hasFeatureN(2):HP:0011842
+//hasOptionalFeature:HP_0100257
+//hasOptionalFeature:HP_0009556
+//hasOptionalFeature:HP_0009829
+//hasOptionalFeature:HP_0003974

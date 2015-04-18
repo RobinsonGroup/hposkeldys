@@ -10,5 +10,7 @@ gold:609162=SED with metatarsal shortening (formerly Czech dysplasia)
 gold:108300=Stickler syndrome type 1
 gold:271700=Spondyloperipheral dysplasia
 //
+[begin-definitions]
+[definition]
 hasGermlineMutationIn:COL2A1
 

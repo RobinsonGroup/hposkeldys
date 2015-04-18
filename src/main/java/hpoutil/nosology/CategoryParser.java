@@ -181,6 +181,9 @@ public class CategoryParser {
 		    System.exit(1);
 		}
 	    }
+	    if (classifier != null) {
+		dc.addClassifier(classifier);
+	    }
 	    br.close();
 	} catch(IOException e) {
 	    e.printStackTrace();
@@ -190,14 +193,16 @@ public class CategoryParser {
 	    
     }
 
-
-	private Integer getHPcode(String h) {
-	    if (h.startsWith("HP_") || h.startsWith("HP:"))
-		h = h.substring(3).trim();
-	    if (h.length()!=7)
-		throw new IllegalArgumentException("Bad length for HP term in CategoryParser:" + h);
-	    return Integer.parseInt(h);
-	}
+    /**
+     * @return the Integer part of the HPO code, e.g., 123 for HP:0000123.
+     */
+    private Integer getHPcode(String h) {
+	if (h.startsWith("HP_") || h.startsWith("HP:"))
+	    h = h.substring(3).trim();
+	if (h.length()!=7)
+	    throw new IllegalArgumentException("Bad length for HP term in CategoryParser:" + h);
+	return Integer.parseInt(h);
+    }
 
 
 
@@ -220,10 +225,10 @@ public class CategoryParser {
 	    System.exit(1);
 	}
 	return paths;
-
-
     }
 
 
 
 }
+
+/* eof */

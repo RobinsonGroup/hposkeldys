@@ -6,18 +6,13 @@ gold:184095 = Spondyloepimetaphyseal dysplasia, Maroteaux type (Pseudo–Morquio
 gold:184252 = Spondylometaphyseal dysplasia, Kozlowski type
 gold:113500 = Brachyolmia, autosomal dominant type
 gold:606835 = Familial digital arthropathy with brachydactyly
-//
-hasGermlineMutationIn:TRPV4
-hasFeature:HP_0000924
-
 
 // hasGermlineMutation in TRVP4 AND
-// hasFeature Abnormality of the skeletal system. + short stature (HP_0004322)
+// hasFeature Abnormality of the skeletal system (HP_0000924).
 // The last restriction is necessary to keep hereditary motor and sensory neuropathy type IIC (HMSN2C), 
 // which is caused by heterozygous mutation in the TRPV4 gene, from being classified as a TRPV4 group skeletal dysplasia.  
 
-//#hasGermlineMutationIn TRPV4
-//#hasFeature HP_0000924
-//#hasFeature HP_0004322
-
-
+[begin-definitions]
+[definition]
+hasGermlineMutationIn:TRPV4
+hasFeature:HP_0000924

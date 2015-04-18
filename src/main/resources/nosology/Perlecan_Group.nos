@@ -5,5 +5,7 @@ gold:224410=Dyssegmental dysplasia, Silverman-Handmaker type
 gold:224400=Dyssegmental dysplasia, Rolland-Desbuquois type
 gold:255800=Schwartz–Jampel syndrome (myotonic chondrodystrophy)
 //
+[begin-definitions]
+[definition]
 hasGermlineMutationIn:HSPG2
 hasGermlineMutationIn:PLC

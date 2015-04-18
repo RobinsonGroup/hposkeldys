@@ -40,6 +40,8 @@ public class Definition implements Classifier{
 
      /** reference to the HPO object */
     private static HPO hpo;
+
+    private boolean verbose=false;
    
   
 
@@ -271,22 +273,40 @@ public class Definition implements Classifier{
     }
 
     public boolean satisfiesDefinition(DiseaseAnnotation disease) { 
-	if (! satisfiesDiseaseGeneDefinition(disease))
+	/*if (disease.MIMid().equals(187601))
+	    this.verbose=true;
+	else
+	this.verbose=false;*/
+	if (! satisfiesDiseaseGeneDefinition(disease)) {
 	    return false;
-	if (! satisfiesNotFeatureDefinition(disease))
+	} else if (verbose) {
+	    System.out.println(disease + "SATISGFY DG");
+	}
+	if (! satisfiesNotFeatureDefinition(disease)) {
 	    return false;
+	} else if (verbose) {
+	     System.out.println(disease + "SATISGFY NOT");
+	}
 	if (! satisfiesNeonatalDefinition(disease))
 	    return false;
+	if (verbose) 
+	    System.out.println(disease + "SATISGFY NEO");
 	if ( ! satisfiesHasN_FeaturesDefinition(disease))
 	    return false;
+		if (verbose) 
+		    System.out.println(disease + "SATISGFY n feat   SIZE OF FEATURE LSIT IOST " + this.featurelist.size());
 	if (this.featurelist!=null && this.featurelist.size()>0) {
 	    if (! hasFeatures(disease) )
 		return false;
 	}
+		if (verbose) 
+	    System.out.println(disease + "SATISGFY FEAT");
 	if (this.optionalFeaturelist!=null && this.optionalFeaturelist.size()>0) {
 	    if ( ! hasOptionalFeatures(disease))
 		return false;
 	}
+	if (verbose) 
+	    System.out.println(disease + "SATISGFY BOTTOM");
 	return true; /* If we get here, then all requirements were satisfied. */
     }
 

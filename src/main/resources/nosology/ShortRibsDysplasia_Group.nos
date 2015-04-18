@@ -17,7 +17,8 @@ gold:187760 = Thoracolaryngopelvic dysplasia (Barnes)
 //hasFeature Short_Ribs (HP:0000773)
 //hasFeature Horizontal ribs (HP:0000888) AND
 
-
+[begin-definitions]
+[definition]
 hasFeature:HP_0000773
 hasFeature:HP:0000888
 

@@ -14,10 +14,9 @@ import hpoutil.omim.DiseaseAnnotation;
 /**
  * This class represents one of the 40 skeletal nosology categories
  * @author Peter Robinson
- * @version 0.02 (1 March 2015)
+ * @version 0.2 (18 April 2015)
  */
 public class DiseaseCategory {
-
     private static Logger log = Logger.getLogger(DiseaseCategory.class.getName());
     /** One of the 40 names of the skeletal nosology */
     private String categoryname=null;
@@ -31,12 +30,11 @@ public class DiseaseCategory {
     int notMemberCount=0;
     /** A list of 1 or more definitions for a disease to belong to this category */
     ArrayList<Classifier> classifierList=null;
-
-
+    /** True positive classifications. */
     ArrayList<DiseaseAnnotation> goodCandidate=new ArrayList<DiseaseAnnotation>();
     /** Keep a list of the false negative candidates here. */
     ArrayList<DiseaseAnnotation> notFound=new ArrayList<DiseaseAnnotation>();
-
+    /** @param gs A list of all of the diseases belonging to this category according to the 2010 nosology. */
     public void addGoldStandard(HashMap<Integer,String> gs) { this.goldstandard=gs; }
 
     /**
@@ -53,12 +51,11 @@ public class DiseaseCategory {
     }
     
 
-
     public void addClassifier(Classifier def) {
 	this.classifierList.add(def);
     }
 
-
+    /** @param hpo A static reference to the Ontology object. */
     static public void setHPO(HPO hpo) {
 	DiseaseCategory.hpo=hpo;
     }
@@ -72,15 +69,6 @@ public class DiseaseCategory {
 	return l;
     }
 
-  
-
-
-  
-
-    
-
-
-    // private String getDiseaseCategory
     public static  ArrayList<DiseaseCategory> categorylist=null;
     public static void setCategoryList( ArrayList<DiseaseCategory> list) {
 	DiseaseCategory.categorylist=list;
@@ -102,12 +90,16 @@ public class DiseaseCategory {
 	for (Integer id : this.goldstandard.keySet()) {
 	    foundGS.put(id,false);
 	}
+	out.write("#### ");
 	if (categorynumber != 0)
 	    out.write(this.categorynumber + ".");
-	out.write(this.categoryname + "\n");
-
+	out.write(this.categoryname);
+	out.write("  ####\n");
+	int defNumber=0;
 	for (Classifier c : this.classifierList) {
-	    c.printDefinition(out);
+	    defNumber++;
+	    out.write(defNumber + ". ");
+	    c.printDefinition(out);   
 	}
 	out.write("Predictions:\n");
 	for (DiseaseAnnotation da : goodCandidate) {
@@ -182,22 +174,15 @@ public class DiseaseCategory {
 	}
     }
 
-
-
-   
-
-
-
-
-
     public boolean evaluateCandidateDisease(DiseaseAnnotation disease) {
 	boolean verbose=false;
-	//if (disease.MIMid().equals(200600))
+	//if (disease.MIMid().equals(187601))
 	//  verbose=true;
 
 	for (Classifier c : this.classifierList) {
-	    if (c.satisfiesDefinition(disease) )
+	    if (c.satisfiesDefinition(disease) ) {
 		return true;
+	    }
 	}
 	return false; // Definition not satisfied at all.
     }

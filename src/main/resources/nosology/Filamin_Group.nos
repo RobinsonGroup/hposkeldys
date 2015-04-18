@@ -19,7 +19,8 @@ gold:600330 = Serpentine fibula—polycystic kidney syndrome ==> Probable error 
 
 //hasFeature Abnormality of the skeletal system. (HP_0000924)
 
-//UNION(#hasGermlineMutationIn FLNA | #hasGermlineMutationIn FLNB | #hasGermlineMutationIn SH3PXD2B)
+[begin-definitions]
+[definition]
 hasFeature:HP_0000924
 hasGermlineMutationIn:FLNA
 hasGermlineMutationIn:FLNB

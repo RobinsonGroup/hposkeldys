@@ -11,7 +11,8 @@ gold:215150=Otospondylomegaepiphyseal dysplasia (OSMED), recessive type / domina
 
 // Also hasFeature HP:0000924, Abnormality of the skeletal system
 // since otherwise we get some col11 deafness syndromes
-
+[begin-definitions]
+[definition]
 hasGermlineMutationIn:COL11A1
 hasGermlineMutationIn:COL11A2
 hasFeature:HP_0000924

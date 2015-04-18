@@ -67,10 +67,11 @@ public class HPOUtil {
      */
     public void parseCategoryFiles() {
 	if (this.hpo==null) {
-	    System.err.println("HPOUtil.java: ERROR: Cannot inference with null hpo");
+	    System.err.println("HPOUtil.java: ERROR: Cannot perform inference with null hpo");
 	    System.exit(1);
 	}
 	DiseaseCategory.setHPO(this.hpo);
+	Definition.setHPO(this.hpo);
 	CategoryParser parser = new CategoryParser();
 	this.categorylist=parser.getDiseaseCategoryList();
 	for (DiseaseCategory cat:categorylist) {

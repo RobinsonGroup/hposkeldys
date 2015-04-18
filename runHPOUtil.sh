@@ -15,4 +15,4 @@ elif [ $HNAME = 'bioinf-hpo' ]; then
     ANNOT="/home/peter/SVN/annotations/OMIM/by-disease/annotated"
 fi
 
-java -jar target/hpoutil-0.0.1-SNAPSHOT.jar --hpo $HPO --morbidmap $MORBID -A $ANNOT
+java -jar target/hpoutil-0.0.2-SNAPSHOT.jar --hpo $HPO --morbidmap $MORBID -A $ANNOT

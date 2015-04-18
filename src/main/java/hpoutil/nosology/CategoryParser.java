@@ -10,7 +10,7 @@ import java.io.*;
  * Parse one of the 40 *.nos files containing the definitions
  * for the sekeltal nosology.
  * @author Peter Robinson
- * @version 0.2 (20 March 2015)
+ * @version 0.21 (20 April 2015)
  */
 public class CategoryParser {
 
@@ -96,24 +96,14 @@ public class CategoryParser {
       //[187600, 187601, 100800, 146000, 610474]
       hasGermlineMutationIn:FGFR3
       notHasFeature:HP_0001363
-      // NOT HPO_craniosynostosis (HP:0001363)
-      // NOT Triphalangeal thumb (HP:0001199)
-      //!#hasFeature HP_0001363
-      //!#hasFeature HP_0001199
-      */
+    */
 
     private void parseCategory(String filepath) {
-
 	HashMap<Integer,String> goldstandard=new  HashMap<Integer,String>();
-	ArrayList<String> diseasegenes=new ArrayList<String>();
-	ArrayList<Integer> featurelist=new ArrayList<Integer>();
-	ArrayList<Integer> notFeaturelist=new ArrayList<Integer>();
-	ArrayList<Integer> optionallist=new ArrayList<Integer>();
-	ArrayList<Integer> featureNlist=new ArrayList<Integer>();
-	ArrayList<Integer> N=new ArrayList<Integer>();
-	Integer neonatal=null;
 	String name=null;
 	Integer number=null;
+	Classifier classifier=null; /* The current Definition */
+	DiseaseCategory dc=null;
 	try {
 	    BufferedReader br = new BufferedReader(new FileReader(filepath));
 	    String line=null;
@@ -135,34 +125,57 @@ public class CategoryParser {
 		    }
 		    Integer mim = Integer.parseInt(a[0].trim());
 		    goldstandard.put(mim,a[1].trim());
-		} else if (line.startsWith("hasGermlineMutationIn:")) {
+		} else if (line.startsWith("[begin-definitions]")) {
+		    if (name==null || number==null || goldstandard==null) {
+			System.err.println("Error: Definition must include name, number, and gold standard");
+		    } else {			   
+			dc = new DiseaseCategory(name, number, goldstandard);
+		    }
+		    break;
+		}
+	    }
+	    if (dc==null) {
+		System.err.println("Could not parse category");return;
+	    }
+
+	    while ((line = br.readLine())!=null) {
+		if (line.startsWith("[definition]")) {
+		    if (classifier != null) {
+			dc.addClassifier(classifier);
+		    }
+		    classifier=new Definition(); // New or reset!
+		} 
+		else if (line.startsWith("//"))
+		    continue;
+		else if (line.isEmpty())
+		    continue;
+		else if (line.startsWith("hasGermlineMutationIn:")) {
 		    int i = line.indexOf(":");
 		    String sym = line.substring(i+1).trim();
-		    diseasegenes.add(sym);
+		    classifier.addGermlineMutation(sym);
 		} else if (line.startsWith("notHasFeature:")) {
 		    String hp=line.substring(14).trim();
 		    Integer hpo=getHPcode(hp);
-		    notFeaturelist.add(hpo);
+		    classifier.addNotFeature(hpo);
 		} else if (line.startsWith("hasFeature:")) {
 		    String hp=line.substring(11).trim();
 		    Integer hpo=getHPcode(hp);
-		    featurelist.add(hpo);
+		    classifier.addFeature(hpo);
 		} else if (line.startsWith("hasFeatureN(")) {
 		    line=line.substring(12).trim();
 		    int x = line.indexOf(")");
 		    Integer n = Integer.parseInt(line.substring(0,x));
 		    line=line.substring(x+2); /* skip the '):' */
 		    Integer hpo=getHPcode(line);
-		    featureNlist.add(hpo);
-		    N.add(n);
+		    classifier.addNfeature(hpo,n);
 		} else if (line.startsWith("hasNeonatalFeature:")) {
 		    line=line.substring(19).trim();
 		    Integer hpo=getHPcode(line);
-		    neonatal=hpo;
+		    classifier.setNeonatalFeature(hpo);
 		} else if (line.startsWith("hasOptionalFeature:")) {
 		    String hp = line.substring(19).trim();
 		    Integer hpo=getHPcode(hp);
-		    optionallist.add(hpo);
+		    classifier.addOptionalFeature(hpo);
 		} else {
 		    System.err.println("Error in file:" + filepath + "\n\t at line:"+ line);
 		    System.exit(1);
@@ -173,16 +186,6 @@ public class CategoryParser {
 	    e.printStackTrace();
 	    System.exit(1);
 	}
-	DiseaseCategory dc = new DiseaseCategory(name,diseasegenes,featurelist,notFeaturelist);
-	dc.addGoldStandard(goldstandard);
-	if (optionallist.size()>0)
-	    dc.setOptionalList(optionallist);
-	if (featureNlist.size()>0)
-	    dc.setFeatureN(featureNlist,N);
-	if (number != null)
-	    dc.setNumber(number);
-	if (neonatal != null)
-	    dc.setNeonatalFeature(neonatal);
 	this.categorylist.add(dc);
 	    
     }

@@ -49,7 +49,12 @@ gold:169550 = Scapulo-iliac dysplasia (Kosenow)
 // ectrodactyly HP:0100257
 // HP:0009556 absent tibia
 // Abnormality of skeletal morphology HP:0011842
-
+[begin-definitions]
+[definition]
+//1. Has absent tibia
+hasFeature:HP_0009556
+[definition]
+// Revise this
 hasFeatureN(2):HP:0011842
 hasOptionalFeature:HP_0100257
 hasOptionalFeature:HP_0009556

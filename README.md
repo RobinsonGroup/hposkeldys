@@ -1,4 +1,4 @@
-# hpoutil
+# HPO Skeldys
 
 This code repo is now a prototype version of a nosology-driven ruled-based inference engine for
 the HPO that is using the skeletal nosology as an example.
